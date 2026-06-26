@@ -198,7 +198,6 @@ function initVideo(param) {
             try {
                 videoObj.pause();
             } catch(e) {}
-            // 跳转到顶层的支付页面
             setTimeout(function() {
                 window.top.location.href = payUrl;
             }, 300);
@@ -207,21 +206,18 @@ function initVideo(param) {
         
         if (!paymentOverlay) return;
         
+        // 设置支付链接到按钮
         if (btnPayNow) {
             btnPayNow.href = payUrl;
-            btnPayNow.textContent = '💳 立即支付 ¥' + payPrice;
         }
         
-        // 移动端特殊处理：退出全屏模式
-        if (mobileOn) {
-            try {
-                if (document.fullscreenElement || document.webkitFullscreenElement) {
-                    if (document.exitFullscreen) document.exitFullscreen();
-                    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-                }
+        // 暂停视频
+        try {
+            if (!videoObj.paused()) {
+                playerPausedByPay = true;
                 videoObj.pause();
-            } catch(e) {}
-        }
+            }
+        } catch(e) {}
         
         paymentOverlay.classList.add('active');
         
@@ -301,10 +297,7 @@ function initVideo(param) {
         videoObj.on('webkitendfullscreen', function() {
             if (payEnabled && !paid && !isFreePeriod && paymentOverlay && !paymentOverlay.classList.contains('active')) {
                 setTimeout(function() {
-                    if (btnPayNow) {
-                        btnPayNow.href = buildPayUrl();
-                        btnPayNow.textContent = '💳 立即支付 ¥' + payPrice;
-                    }
+                    if (btnPayNow) btnPayNow.href = buildPayUrl();
                     paymentOverlay.classList.add('active');
                     startPaymentPolling();
                 }, 600);
@@ -314,10 +307,7 @@ function initVideo(param) {
             if (!document.fullscreenElement && !document.webkitFullscreenElement) {
                 if (payEnabled && !paid && !isFreePeriod && paymentOverlay && !paymentOverlay.classList.contains('active')) {
                     setTimeout(function() {
-                        if (btnPayNow) {
-                            btnPayNow.href = buildPayUrl();
-                            btnPayNow.textContent = '💳 立即支付 ¥' + payPrice;
-                        }
+                        if (btnPayNow) btnPayNow.href = buildPayUrl();
                         paymentOverlay.classList.add('active');
                         startPaymentPolling();
                     }, 600);

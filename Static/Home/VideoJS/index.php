@@ -57,9 +57,9 @@ body { margin: 0; padding: 0; background: #000; overflow: hidden; }
 .payment-modal {
     background: white;
     border-radius: 16px;
-    padding: 40px 30px 30px;
-    max-width: 360px;
-    width: 90%;
+    padding: 24px 24px 20px;
+    max-width: 340px;
+    width: 88%;
     text-align: center;
     animation: modalIn 0.4s ease;
     box-shadow: 0 20px 60px rgba(0,0,0,0.5);
@@ -68,57 +68,93 @@ body { margin: 0; padding: 0; background: #000; overflow: hidden; }
     from { transform: translateY(30px) scale(0.95); opacity: 0; }
     to { transform: translateY(0) scale(1); opacity: 1; }
 }
-.payment-modal .lock-icon {
-    font-size: 52px;
-    margin-bottom: 15px;
+
+/* 顶部：锁图标 + 文字（横向排列） */
+.modal-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    text-align: left;
 }
-.payment-modal h3 {
-    font-size: 20px;
+.modal-top .lock-icon {
+    font-size: 38px;
+    flex-shrink: 0;
+}
+.modal-top-text {
+    flex: 1;
+    min-width: 0;
+}
+.modal-top-text h3 {
+    font-size: 17px;
     color: #333;
-    margin-bottom: 8px;
     font-weight: 700;
+    margin: 0 0 4px;
+    line-height: 1.3;
 }
-.payment-modal .desc {
-    font-size: 14px;
-    color: #999;
-    margin-bottom: 8px;
-    line-height: 1.5;
-}
-.payment-modal .countdown-hint {
+.modal-top-text .countdown-hint {
     font-size: 12px;
     color: #ff6600;
-    margin-bottom: 20px;
     font-weight: 500;
+    margin: 0;
 }
-.payment-modal .price-tag {
-    font-size: 36px;
+
+/* 中间行：金额 + 立即支付按钮（横向排列） */
+.pay-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: #f5f7ff;
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+.price-area {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    flex-shrink: 0;
+}
+.price-area .currency {
+    font-size: 18px;
     font-weight: 700;
     color: #667eea;
-    margin: 15px 0 5px;
 }
-.payment-modal .price-tag .currency {
-    font-size: 20px;
+.price-area .price-num {
+    font-size: 32px;
+    font-weight: 700;
+    color: #667eea;
+    line-height: 1;
 }
-.payment-modal .price-label {
-    font-size: 13px;
-    color: #999;
-    margin-bottom: 20px;
-}
-.payment-modal .btn-pay-now {
-    display: block;
-    width: 100%;
-    padding: 14px;
+.pay-row .btn-pay-now {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
     border: none;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
     text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
-.payment-modal .btn-pay-now:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(102,126,234,0.4); }
+.pay-row .btn-pay-now:active { transform: scale(0.96); }
+
+/* 移动端紧凑适配 */
+@media (max-width: 380px) {
+    .payment-modal { padding: 18px 16px 16px; }
+    .modal-top { gap: 10px; margin-bottom: 14px; }
+    .modal-top .lock-icon { font-size: 30px; }
+    .modal-top-text h3 { font-size: 15px; }
+    .price-area .price-num { font-size: 26px; }
+    .pay-row { padding: 10px 12px; gap: 8px; }
+    .pay-row .btn-pay-now { padding: 10px 16px; font-size: 14px; }
+}
 
 /* 倒计时提示条 */
 .free-countdown {
@@ -218,13 +254,20 @@ $check_paid_url = $base_url . '/Php/Payment/check_paid.php';
     <!-- 支付覆盖层（body 直接子元素，避免被播放器层叠上下文遮挡） -->
     <div class="payment-overlay" id="paymentOverlay">
         <div class="payment-modal">
-            <div class="lock-icon">🔒</div>
-            <h3 id="payTitle"><?php echo htmlspecialchars($payment_name); ?></h3>
-            <div class="desc" id="payDesc"><?php echo htmlspecialchars($payment_description); ?></div>
-            <div class="countdown-hint" id="freeEndHint">⏰ 免费试看已结束</div>
-            <div class="price-tag"><span class="currency">¥</span> <span id="payPrice"><?php echo htmlspecialchars($payment_price); ?></span></div>
-            <div class="price-label">支付后完整观看</div>
-            <a href="#" class="btn-pay-now" id="btnPayNow">💳 立即支付 ¥<?php echo htmlspecialchars($payment_price); ?></a>
+            <div class="modal-top">
+                <div class="lock-icon">🔒</div>
+                <div class="modal-top-text">
+                    <h3 id="payTitle"><?php echo htmlspecialchars($payment_name); ?></h3>
+                    <div class="countdown-hint" id="freeEndHint">⏰ 免费试看已结束</div>
+                </div>
+            </div>
+            <div class="pay-row">
+                <div class="price-area">
+                    <span class="currency">¥</span>
+                    <span class="price-num" id="payPrice"><?php echo htmlspecialchars($payment_price); ?></span>
+                </div>
+                <a href="#" class="btn-pay-now" id="btnPayNow">立即支付</a>
+            </div>
         </div>
     </div>
 

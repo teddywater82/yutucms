@@ -270,6 +270,13 @@ include('../Php/Admin/cookie.php');
                 $('#paymentConfig').slideUp(300);
             }
         });
+        
+        <?php if (isset($_POST['submit'])): ?>
+        setTimeout(function() {
+            alert('保存成功！');
+            window.location.href = '?Php=Home/Payment/PaymentSetup';
+        }, 100);
+        <?php endif; ?>
     });
     </script>
     <?php include('../Php/Admin/footer.php');?>

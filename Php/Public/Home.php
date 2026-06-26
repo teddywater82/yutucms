@@ -20,6 +20,7 @@ switch($Php){
 	case 'Home/Ad/IeUrl':$C_T_0 = 'Home/Ad/IeUrl';break;//友情链接	
 	case 'Home/Ad/IeUrlAdd':$C_T_0 = 'Home/Ad/IeUrlAdd';break;//友情链接添加	
 	case 'Home/Plug/Local':$C_T_0 = 'Home/Plug/Local';break;//插件中心本地插件
+	case 'Home/Payment/PaymentSetup':$C_T_0 = 'Home/Payment/PaymentSetup';break;//支付设置
 	default:$C_T_0 = 'Login';break;//默认登录页面	
 	}
 ?>

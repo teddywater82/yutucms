@@ -8,7 +8,7 @@ function initVideo(param) {
         
         // 支付配置
         payment = param.payment || {},
-        payEnabled = payment.enabled === true || payment.enabled === 1 || payment.enabled === '1',
+        payEnabled = String(payment.enabled) === '1' || String(payment.enabled) === 'true' || payment.enabled === true,
         freeSeconds = parseInt(payment.freeSeconds) || 15,
         payPrice = payment.price || '9.90',
         payTitle = payment.title || '观看完整视频',

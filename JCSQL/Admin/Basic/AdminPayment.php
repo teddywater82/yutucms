@@ -1,1 +1,1 @@
-{"payment_enabled":"0","free_seconds":"15","payment_price":"9.90","payment_name":"观看完整视频","payment_description":"试看15秒后需付费观看完整视频","merchant_id":"","merchant_key":"","merchant_api_url":"","notify_url":"","return_url":"","merchant_type":"epay"}
+{"payment_enabled":"1","free_seconds":"15","payment_price":"3.90","payment_name":"解锁完整视频","payment_description":"免费试看15秒，付费3.9元解锁完整视频内容","merchant_id":"","merchant_key":"","merchant_api_url":"","notify_url":"","return_url":"","merchant_type":"epay"}

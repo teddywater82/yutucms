@@ -208,7 +208,7 @@ $check_paid_url = $base_url . '/Php/Payment/check_paid.php';
         免费试看 <span class="count-num" id="countdownNum"><?php echo $free_seconds; ?></span>s
     </div>
 
-    <video id="myVideo" class="video-js vjs-default-skin" controls preload="auto" poster="<?php echo $poster; ?>" playsinline webkit-playsinline x5-video-player-type="h5" x5-video-player-fullscreen="true" x-webkit-airplay="allow"></video>
+    <video id="myVideo" class="video-js vjs-default-skin" controls preload="auto" poster="<?php echo $poster; ?>" playsinline webkit-playsinline></video>
 
     <link rel="stylesheet" type="text/css" href="video.min.css?v=3">
     <script type="text/javascript" src="video.min.js?v=1" charset="utf-8"></script>

@@ -30,7 +30,7 @@ function initVideo(param) {
         // 浏览器检测
         isUC = ua.indexOf('ucbrowser') !== -1,
         isQQ = ua.indexOf('qqbrowser') !== -1,
-        isAliensBrowser = isUC || isQQ,
+        isAliensBrowser = isUC || isQQ;
 
     // 创建视频播放器
     var videoObj = videojs(param.id, {
@@ -326,28 +326,7 @@ function initVideo(param) {
         });
     }
 
-    // 对于 UC/QQ 等拦截视频播放的浏览器：点击播放区域时手动启动倒计时
-    function onPlayerInteraction() {
-        if (payEnabled && !paid && isFreePeriod && !freeTimer) {
-            startFreeCountdown();
-        }
-    }
-    var playerEl = videoObj.el();
-    if (playerEl) {
-        playerEl.addEventListener('click', onPlayerInteraction);
-        playerEl.addEventListener('touchstart', onPlayerInteraction, { passive: true });
-    }
-    // 移动端适配：如果点击回到父页面的大播放按钮
-    document.addEventListener('click', function(e) {
-        if (payEnabled && !paid && isFreePeriod && !freeTimer) {
-            // 检测是否有视频播放启动
-            setTimeout(function() {
-                if (!videoObj.paused() && !freeTimer) {
-                    startFreeCountdown();
-                }
-            }, 300);
-        }
-    }, true);
+
 
     // 备用方案：通过 timeupdate 检测播放进度自动启动倒计时（解决部分手机浏览器 play 事件不触发问题）
     videoObj.on('timeupdate', function() {

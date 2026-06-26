@@ -40,7 +40,7 @@ if ($pay_order_id) {
             $return_video_id = isset($order_data['video_id']) ? $order_data['video_id'] : '';
             $return_video_page = isset($order_data['video_page']) ? $order_data['video_page'] : '';
             if ($return_video_id && $return_video_page) {
-                header("Location: /?m=video_conter-id-{$return_video_id}-page-{$return_video_page}&paid=1&trade_no=" . urlencode($pay_result));
+                header("Location: /?m=video_conter*{$return_video_id}*{$return_video_page}&paid=1&trade_no=" . urlencode($pay_result));
                 exit;
             } else {
                 header("Location: /");

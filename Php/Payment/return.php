@@ -26,7 +26,7 @@ if (file_exists($order_file)) {
 // 跳转回视频页面
 $redirect_url = '/';
 if ($video_id && $video_page) {
-    $redirect_url = "/?m=video_conter-id-{$video_id}-page-{$video_page}&paid=1";
+    $redirect_url = "/?m=video_conter*{$video_id}*{$video_page}&paid=1";
     if ($trade_no) {
         $redirect_url .= '&trade_no=' . urlencode($trade_no);
     }

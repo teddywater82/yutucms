@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms-Search-List:Title}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms-Search-List:Title}">
+		<meta name="description" content="{ytcms:$WebDescription},{ytcms-Search-List:Title}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/app.css" />
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/all.css" />
+	<body style="padding-bottom: 0px !important;">
+		{ytcms-include:Header}
+		<main id="main">
+			<div class="container-fluid mb-3 p-0">
+				{ytcms-TAd}
+				<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}"
+							style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+				{/ytcms-TAd}
+			</div>
+			<div id="videoSearchPage" class="container-fluid p-0">
+				<div class="row my-2">
+					<h5 class="container-title col-60">"{ytcms-Search-List:Title}" <small class="d-inline ml-2">搜索结果</small></h5>
+				</div>
+			</div>
+			<div class="row">
+			{ytcms-Search-List:Count=16}
+				<div class="colVideoList">
+					<div class="video-elem">
+						<a target="_blank" class="display d-block" href="{ytcms-Search-List:DUrl}">
+							<div class="scale"></div>
+							<div class="img"
+								style="background-image: url('{ytcms-Search-List:Pic}')"></div>
+							<small class="layer">
+								{ytcms-Search-List:Rand}</small>
+						</a>
+						<a target="_blank" class="title text-sub-title mt-2 mb-3"
+							href="{ytcms-Search-List:DUrl}">{ytcms-Search-List:Name}</a>
+					</div>
+				</div>
+				{/ytcms-Search-List}
+			</div>
+			<div class="row">
+				<div class="my-4 mx-auto" id="wr-page">
+					<script src="{ytcms:$StylePath}/js/jQuery.js"></script>
+					<script src="{ytcms:$StylePath}/js/page.js?t=1"></script>
+					<script type="text/javascript">
+						$("#wr-page").wrpage({
+							pagesize: '{ytcms-Search-List:totalPage}',
+							wr_current: '{ytcms-Search-List:currentPage}',
+							baseUrl: '{ytcms-Search-List:baseUrl}',
+						})
+					</script>
+				</div>
+			</div>
+		</main>
+		{ytcms-include:Footer}
+	</body>
+</html>
+<style>
+	.my-4 a{
+		color: #666!important;
+		padding: 0 10px;
+		border: 1px solid #c6c6c6;
+	}
+	.pagination {
+		height: 32px;
+		line-height: 32px;
+		margin-bottom: 20px;
+		margin-top: 20px;
+		text-align: center
+	}
+	
+	.pagination a {
+		background-color: #f1f1f1;
+		color: #777;
+		display: inline-block;
+		margin-right: 2px;
+		padding: 0 12px
+	}
+	
+	.pagination a:hover,
+	.pagination strong {
+		background-color: #ff5757;
+		color: #fff;
+		text-shadow: 1px 1px 1px #ff5757
+	}
+	
+	.pagination strong {
+		display: inline-block;
+		font-weight: 400;
+		height: 32px;
+		line-height: 32px;
+		margin-right: 2px;
+		padding: 0 12px
+	}
+	
+	.pagination a,
+	.pagination strong {
+		border-radius: 3px
+	}
+	
+	@media (min-width:769px) {
+		.pagination a.hidden-xs {
+			display: inline-block
+		}
+	
+		.pagination a.visible-xs {
+			display: none
+		}
+	}
+	
+	@media (max-width:769px) {
+		.pagination a.hidden-xs {
+			display: none
+		}
+	
+		.pagination a.visible-xs {
+			display: inline-block
+		}
+	}
+	
+	@media (max-width:328px) {
+		.pagination a {
+			background-color: #f1f1f1;
+			color: #777;
+			display: inline-block;
+			margin-right: 2px;
+			padding: 0 10px
+		}
+	}
+</style>

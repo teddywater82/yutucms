@@ -1,0 +1,62 @@
+<div class="layout doc-header">
+	<div class="layout doc-toper">
+		<div class="container">
+			<div class="line">
+				<div class="x8">
+					<a href="/">{ytcms:$WebTitle}</a>
+				</div>
+				<div class="x4 text-right">
+					最新网址：<a href="{ytcms:$WEBUrl}">{ytcms:$WEBUrl}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container margin-top" style="padding-top:5px;padding-bottom:5px">
+		<div class="search-box">
+			<form>
+				<div align="center">
+					<input id="searchword" name="search" class="search-input" placeholder="请输入搜索关键词"
+						type="text" style="width:75%;line-height:28px;float: left;">
+					<input id="searchbutton" class="search-button" value="搜索" type="submit"
+						style="width:25%;line-height:28px;">
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="container margin-top">
+		<div class="line">
+			<div class="xl12 bg-main bg-inverse navbar-body doc-nav">
+				<ul class="nav nav-inline padding-small-top nav-menu" id="doc-header-pintuer">
+					<li class="bg-yellow active"><a href="#">视频一区</a></li>
+					{ytcms:Type=1,2,3,4,5,6,7,8}
+					<li id="type0"><a href="{ytcms:Url}" target="_blank">{ytcms:Name}</a></li>
+					{/ytcms:Type}
+				</ul>
+			</div>
+			<div class="xl12 bg-main bg-inverse navbar-body doc-nav">
+				<ul class="nav nav-inline padding-small-top nav-menu" id="doc-header-pintuer">
+					<li class="bg-yellow active"><a href="#">视频二区</a></li>
+					{ytcms:Type=9,10,11,12,13,14,15,16}
+					<li id="type0"><a href="{ytcms:Url}" target="_blank">{ytcms:Name}</a></li>
+					{/ytcms:Type}
+				</ul>
+			</div>	
+			<div class="xl12 bg-main bg-inverse navbar-body doc-nav">
+				<ul class="nav nav-inline padding-small-top nav-menu" id="doc-header-pintuer">
+					<li class="bg-yellow active"><a href="#">视频三区</a></li>
+					{ytcms:Type=17,18,19,20,21,22,23,24}
+					<li id="type0"><a href="{ytcms:Url}" target="_blank">{ytcms:Name}</a></li>
+					{/ytcms:Type}
+				</ul>
+			</div>	
+				<div class="xl12 bg-main bg-inverse navbar-body doc-nav">
+				<ul class="nav nav-inline padding-small-top nav-menu" id="doc-header-pintuer">
+					<li class="bg-yellow active"><a href="#">视频四区</a></li>
+					{ytcms:Type=25,26,27,28,29,30,31,32}
+					<li id="type0"><a href="{ytcms:Url}" target="_blank">{ytcms:Name}</a></li>
+					{/ytcms:Type}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

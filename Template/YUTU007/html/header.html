@@ -1,0 +1,107 @@
+<script src="{ytcms:$StylePath}/js/app.js"></script>
+<div id="alert-messages" class="container fixed-top text-center"></div>
+<header id="header" class="d-none d-md-block">
+	<nav class="new-nav-first container-fluid">
+		<div class="row container m-auto">
+			<div class="brand col-30 col-md-20" click="redirect" data-href="/">
+				<img src="{ytcms:$WebLogo}" alt="" />
+			</div>
+			<form class="search-form form col-md-18 d-none d-md-flex px-0 justify-content-end align-items-center">
+				<div class="input-group">
+					<input name="search" class="form-control" type="search" value="">
+					<div class="input-group-append cursor-p" needAuth>
+						<span class="input-group-text"><i class="border-0 fas fa-search"></i></span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</nav>
+	<nav class="nav-second container">
+		<ul class="nav">
+			<li class="nav-item d-none d-md-block">
+				<a class="nav-link d-flex align-items-center  active" href="/">
+					首页
+				</a>
+			</li>
+				{ytcms:Type=1}
+			<li class="nav-item ">
+				<a class="nav-link d-flex align-items-center 1=0" href="{ytcms:Url}">
+					视频一区 </a>
+			</li>
+			{/ytcms:Type}
+			{ytcms:Type=9}
+			<li class="nav-item ">
+				<a class="nav-link d-flex align-items-center 2=0" href="{ytcms:Url}">
+					视频二区 </a>
+			</li>
+			{/ytcms:Type}
+			{ytcms:Type=17}
+			<li class="nav-item ">
+				<a class="nav-link d-flex align-items-center 3=0" href="{ytcms:Url}">
+					视频三区 </a>
+			</li>
+			{/ytcms:Type}
+			{ytcms:Type=18}
+			<li class="nav-item ">
+				<a class="nav-link d-flex align-items-center 3=0" href="{ytcms:Url}">
+					视频四区 </a>
+			</li>
+			{/ytcms:Type}
+		</ul>
+		<div class="leftBtn d-md-none">
+			<i class="fas fa-chevron-right"></i>
+		</div>
+	</nav>
+</header>
+
+<header class="Mobile-Header d-block d-md-none">
+	<nav class="Nav d-flex align-items-center justify-content-between">
+		<div class="Menu-Btn"><i class="fas fa-align-justify"></i></div>
+		<div class="Brand" click="redirect" data-href="/">
+			<img style="height: 50px" src="{ytcms:$WebLogo}" alt="" />
+		</div>
+		<div class="Search-Btn cursor-p"><i class="fas fa-search"></i></div>
+	</nav>
+	<form action="/index.php/vod/search.html" method="GET" class="SearchForm form justify-content-end align-items-center">
+		<div class="input-group">
+			<input name="wd" class="form-control" type="search" value="">
+			<div class="input-group-append cursor-p" needAuth>
+				<span class="input-group-text"><i class="border-0 fas fa-search"></i></span>
+			</div>
+		</div>
+	</form>
+	<div class="Menu">
+		<div class="Title"><span>视频一区</span><i class="fas fa-angle-up"></i></div>
+		<div class="Items">
+			{ytcms:Type=1,2,3,4,5,6,7,8}
+			<a class="Item " href="{ytcms:Url}">
+				<i class="fas fa-video icon"></i><span>{ytcms:Name}</span>
+			</a>
+			{/ytcms:Type}
+		</div>
+		<div class="Title LocaleTitle"><span>视频二区</span><i class="fas fa-angle-down"></i></div>
+		<div class="Items">
+			{ytcms:Type=9,10,11,12,13,14,15,16}
+			<a class="Item " href="{ytcms:Url}">
+				<i class="fas fa-video icon"></i><span>{ytcms:Name}</span>
+			</a>
+			{/ytcms:Type}
+		</div>
+		<div class="Title LocaleTitle"><span>视频三区</span><i class="fas fa-angle-down"></i></div>
+		<div class="Items">
+			{ytcms:Type=17,18,18,20,21,22,23,24,25}
+			<a class="Item " href="{ytcms:Url}">
+				<i class="fas fa-video icon"></i><span>{ytcms:Name}</span>
+			</a>
+			{/ytcms:Type}
+		</div>
+			<div class="Title LocaleTitle"><span>视频四区</span><i class="fas fa-angle-down"></i></div>
+		<div class="Items">
+			{ytcms:Type=25,26,27,28,29,30,31,32}
+			<a class="Item " href="{ytcms:Url}">
+				<i class="fas fa-video icon"></i><span>{ytcms:Name}</span>
+			</a>
+			{/ytcms:Type}
+		</div>
+	</div>
+</header>

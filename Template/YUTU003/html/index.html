@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>{ytcms:$WebTitle}</title>
+	<meta name="author" content="{ytcms:$WebKeywords}">
+	<meta name="keywords" content="{ytcms:$WebKeywords}">
+	<meta name="description" content="{ytcms:$WebDescription}">
+	<link rel="stylesheet" href="{ytcms:$StylePath}/css/style.css" />
+<body>
+	{ytcms-include:Header}
+		<div class="wrap">
+		{ytcms-TAd}
+			 <p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}" style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+			{/ytcms-TAd}
+		</div>
+	<div id="midBox"></div>
+	<div class="wrap">
+			<div class=" mod index-list">
+		<div class="title">
+			<h3>精品推荐</h3>
+			<div class="tags"></div>
+		</div>
+		<div class="row col5 clearfix">
+			{ytcms-Index:Type=1,Count=20}
+			<dl>
+				<dt>
+					<a href="{ytcms-Index:DUrl}" title="{ytcms-Index:Name}" target="_blank">
+						<img class="nature" src="{ytcms-Index:Pic}" alt="{ytcms-Index:Name}" />
+						<i>{ytcms-Index:Rand}</i>
+					</a>
+				</dt>
+				<dd>
+					<a href="{ytcms-Index:DUrl}" title="{ytcms-Index:Name}" target="_blank">
+						<h3>{ytcms-Index:Name}</h3>
+					</a>
+				</dd>
+			</dl>
+			{/ytcms-Index}
+		</div>
+	</div>
+	</div>
+	<div class="wrap">
+			<div class=" mod index-list">
+		<div class="title">
+			<h3>国产精品</h3>
+			<div class="tags"></div>
+		</div>
+		<div class="row col5 clearfix">
+			{ytcms-Index:Type=2,Count=20}
+			<dl>
+				<dt>
+					<a href="{ytcms-Index:DUrl}" title="{ytcms-Index:Name}" target="_blank">
+						<img class="nature" src="{ytcms-Index:Pic}" alt="{ytcms-Index:Name}" />
+						<i>{ytcms-Index:Rand}</i>
+					</a>
+				</dt>
+				<dd>
+					<a href="{ytcms-Index:DUrl}" title=" {ytcms-Index:Name}" target="_blank">
+						<h3>{ytcms-Index:Name}</h3>
+					</a>
+				</dd>
+			</dl>
+			{/ytcms-Index}
+		</div>
+	</div>
+	</div>
+	{ytcms-include:Footer}
+</body>
+
+</html>

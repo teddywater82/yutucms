@@ -1,0 +1,261 @@
+<div class="maomi-content ">
+	<div class="pc_show">
+		<link href="{ytcms:$StylePath}/css/header.css" rel="stylesheet">
+		<header class="header-container">
+			<div class="header-banner">
+				<link href="{ytcms:$StylePath}/css/home-banner.css" rel="stylesheet">
+				<div class="home-banner-swiper">
+					<div class="swiper-wrapper">
+					</div>
+				</div>
+				<script src="{ytcms:$StylePath}/js/banner_tmp.js"></script>
+			</div>
+			<div class="header-content">
+				<div class="content-row">
+					<div class="content-item left-content">
+						<a href="/"><img src="{ytcms:$WebLogo}" alt=""
+								class="img-logo"></a>
+						<p class="header_title"></p>
+					</div>
+					<div class="content-item center-content">
+						<div class="menu-list">
+							<a class="menu-item" href="/">
+								<img class=" menu-img" alt="menu" srcset=""
+									src="{ytcms:$StylePath}/images/menu_home.png">
+								<span>首页</span></a>
+							<i>|</i>
+							{ytcms:Type=1}
+							<a class="menu-item" href="{ytcms:Url}">
+								<img class=" menu-img" alt="menu" srcset=""
+									src="{ytcms:$StylePath}/images/menu_new.png">
+								<span>{ytcms:Name}</span></a>
+								{/ytcms:Type}
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</header>
+		<script src="{ytcms:$StylePath}/js/header.js"></script>
+		<div class="menu-content flex-box">
+			<div class="flex-box-left">
+				<link href="{ytcms:$StylePath}/css/menu.css" rel="stylesheet">
+				<section class="container section section-menu" id="section-menu">
+					<div class="row ">
+						<div class="row-item even">
+							<div class="row-item-title bg_light_theme">
+								<a href="#" class='c_white menu-link-item"' data-device='pc' data-channel="shipin">
+									视频一区
+								</a>
+							</div>
+							<ul class="row-item-content">
+								{ytcms:Type=1,2,3,4,5,6,7,8}
+								<li class="item">
+									<a href="{ytcms:Url}" class="menu-link-item" data-device='pc'
+										data-channel="shipin" target="_blank">
+										{ytcms:Name} </a>
+								</li>
+								{/ytcms:Type}
+							</ul>
+						</div>
+						<div class="row-item odd">
+							<div class="row-item-title bg_light_theme">
+
+								<a href="#" class='c_white menu-link-item"' data-device='pc' data-channel="tupian">
+									视频二区
+								</a>
+							</div>
+							<ul class="row-item-content">
+								{ytcms:Type=9,10,11,12,13,14,15,16}
+								<li class="item">
+									<a href="{ytcms:Url}" class="menu-link-item" data-device='pc'
+										data-channel="shipin" target="_blank">
+										{ytcms:Name} </a>
+								</li>
+								{/ytcms:Type}
+							</ul>
+						</div>
+
+						<div class="row-item odd">
+							<div class="row-item-title bg_light_theme">
+								<a href="#" class='c_white menu-link-item"' data-device='pc' data-channel="tupian">
+									视频三区
+								</a>
+							</div>
+							<ul class="row-item-content">
+								{ytcms:Type=17,18,19,20,21,22,23,24}
+								<li class="item">
+									<a href="{ytcms:Url}" class="menu-link-item" data-device='pc'
+										data-channel="shipin" target="_blank">
+										{ytcms:Name} </a>
+								</li>
+								{/ytcms:Type}
+							</ul>
+						</div>
+						
+						<div class="row-item odd">
+							<div class="row-item-title bg_light_theme">
+								<a href="#" class='c_white menu-link-item"' data-device='pc' data-channel="tupian">
+									视频四区
+								</a>
+							</div>
+							<ul class="row-item-content">
+								{ytcms:Type=25,26,27,28,29,30,31,32}
+								<li class="item">
+									<a href="{ytcms:Url}" class="menu-link-item" data-device='pc'
+										data-channel="shipin" target="_blank">
+										{ytcms:Name} </a>
+								</li>
+								{/ytcms:Type}
+							</ul>
+						</div>
+						<div class="row-item odd">
+						</div>
+						<div class="section-menu-tese"></div>
+					</div>
+				</section>
+				<script src="{ytcms:$StylePath}/js/menu.js"></script>
+			</div>
+		</div>
+	</div>
+
+	<div class="mobile_show">
+		<div class="header-fix">
+			<link href="{ytcms:$StylePath}/css/header-mobile.css" rel="stylesheet">
+			<div class="header-mobile">
+				<div class="row header-row">
+					<div class="left">
+						<div class="item">
+							<img class=" logo-img" alt="logo" src="{ytcms:$WebLogo}">
+						</div>
+					</div>
+					<div class="center">
+						<div class="menu-list">
+							<a class="menu-item" href="/">
+								<img class=" menu-img" alt="menu" srcset=""
+									src="{ytcms:$StylePath}/images/menu_home.png">
+								<span>首页</span></a>
+							<i>|</i>
+							{ytcms:Type=1}
+							<a class="menu-item" href="{ytcms:Url}">
+								<img class=" menu-img" alt="menu" srcset=""
+									src="{ytcms:$StylePath}/images/menu_new.png">
+								<span>{ytcms:Name}</span></a>
+								{/ytcms:Type}
+						</div>
+					</div>
+					<div class="right">
+
+					</div>
+				</div>
+			</div>
+
+			<div class="header-vip-card" style="display: none">
+				<link href="{ytcms:$StylePath}/css/vip-card.css" rel="stylesheet">
+				<div class="vip-card">
+					<img class="vip-card-bg" src="{ytcms:$StylePath}/images/vip-card-bg.png" alt="" class="img">
+
+				</div>
+
+			</div>
+
+			<script src="{ytcms:$StylePath}/js/header-index-mobile.js"></script>
+			<script src="{ytcms:$StylePath}/js/header-mobile.js"></script>
+		</div>
+		<div class="header-menu">
+			<link href="{ytcms:$StylePath}/css/home-banner-mobile.css" rel="stylesheet">
+			<div class="home-banner-mobile-swiper">
+				<div class="swiper-wrapper">
+				</div>
+			</div>
+			<script src="{ytcms:$StylePath}/js/banner_tmp.js"></script>
+			<link href="{ytcms:$StylePath}/css/share-url.css" rel="stylesheet">
+			<div class="share-url">
+				<div class="share-fun copy_btn" data-clipboard-text=""
+					style="background-image:url({ytcms:$StylePath}/images/bg.png)">
+					<div id='url-share' class="url url-share-link"></div>
+				</div>
+			</div>
+
+			<script src="{ytcms:$StylePath}/js/share-url.js"></script>
+			<link href="{ytcms:$StylePath}/css/menu-mobile-list.css" rel="stylesheet">
+			<section class="container section section-menu" id="section-menu">
+
+
+				<div id="category_tese"></div>
+				<div class="row-item even">
+					<div class="row-item-title ">
+						{ytcms:Type=1}
+						<a href="{ytcms:Url}" class="bg_light_theme menu-link-item" data-device='mobile' data-channel="shipin">
+							<img class="logo-img" src="{ytcms:$StylePath}/images/home_icon_Movie.png"
+								data-prefix="">
+							{ytcms:Name}
+						</a>
+						{/ytcms:Type}
+					</div>
+					<ul class="row-item-content">
+						{ytcms:Type=1,2,3,4,5,6,7,8}
+						<li class="item">
+							<a href="{ytcms:Url}" class="menu-link-item" data-device='mobile'
+								data-channel="shipin" target="_blank">
+								{ytcms:Name} </a>
+						</li>
+						{/ytcms:Type}
+
+					</ul>
+				</div>
+				<div class="row-item odd">
+					<div class="row-item-title ">
+						<a href="#" class="bg_light_theme menu-link-item" data-device='mobile' data-channel="cili">
+							<img class="logo-img" src="{ytcms:$StylePath}/images/home_icon_app.png"
+								data-prefix="">
+							视频二区
+						</a>
+					</div>
+					<ul class="row-item-content">
+						{ytcms:Type=9,10,11,12,13,14,15,16}
+						<li class="item">
+							<a href="{ytcms:Url}" class="menu-link-item" data-device='mobile'
+								data-channel="shipin" target="_blank">
+								{ytcms:Name} </a>
+						</li>
+						{/ytcms:Type}
+					</ul>
+				</div>
+		<div class="row-item even">
+			<div class="row-item-title ">
+				<a href="#" class="bg_light_theme menu-link-item" data-device='mobile' data-channel="tupian">
+					<img class="logo-img" src="{ytcms:$StylePath}/images/home_icon_Photograph.png" data-prefix="">
+					视频三区
+				</a>
+			</div>
+			<ul class="row-item-content">
+				{ytcms:Type=17,18,19,20,21,22,23,24}
+				<li class="item">
+					<a href="{ytcms:Url}" class="menu-link-item" data-device='mobile'
+						data-channel="shipin" target="_blank">
+						{ytcms:Name} </a>
+				</li>
+				{/ytcms:Type}
+			</ul>
+		</div>
+			<div class="row-item even">
+			<div class="row-item-title ">
+				<a href="#" class="bg_light_theme menu-link-item" data-device='mobile' data-channel="tupian">
+					<img class="logo-img" src="{ytcms:$StylePath}/images/home_icon_Photograph.png" data-prefix="">
+					视频四区
+				</a>
+			</div>
+			<ul class="row-item-content">
+				{ytcms:Type=25,26,27,28,29,30,31,32}
+				<li class="item">
+					<a href="{ytcms:Url}" class="menu-link-item" data-device='mobile'
+						data-channel="shipin" target="_blank">
+						{ytcms:Name} </a>
+				</li>
+				{/ytcms:Type}
+			</ul>
+		</div>
+		</section>
+	</div>
+</div>

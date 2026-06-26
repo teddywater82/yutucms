@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{ytcms:$WebTitle}-{ytcms-Video-List:Title}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms-Video-List:Title}">
+		<meta name="description" content="{ytcms:$WebDescription},{ytcms-Video-List:Title}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/app.css" />
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/all.css" />
+	<body style="padding-bottom: 0px !important;">
+		{ytcms-include:Header}
+		<main id="main">
+			<div class="container-fluid mb-3 p-0">
+				{ytcms-TAd}
+				<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}"
+							style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+				{/ytcms-TAd}
+			</div>
+			<div id="videoListPage" class="container-fluid p-0">
+				<div class="row">
+					<div class="cateContainer col-lg-11 d-none d-lg-block">
+						<ul>
+							<li class="title active"><i class="fas fa-list"></i> 所有分类</li>
+							{ytcms:Type=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25}
+							<li class="" click="redirect" data-href="{ytcms:Url}"><i class="far fa-play-circle"></i>
+								{ytcms:Name}</li>
+							{/ytcms:Type}
+						</ul>
+					</div>
+					<div class="col-lg-1"></div>
+					<div class="col-60 col-lg-48">
+						<div class="title row navTab ">
+							<div class="navContainer sortType col-60 col-md-40 mb-3">
+								{ytcms-Video-List:Title}
+							</div>
+						</div>
+						<div class="row">
+							{ytcms-Video-List:Count=24}
+							<div class="colVideoList">
+								<div class="video-elem">
+									<a target="_blank" class="display d-block" href="{ytcms-Video-List:DUrl}">
+										<div class="scale"></div>
+										<div class="img"
+											style="background-image: url('{ytcms-Video-List:Pic}')">
+										</div>
+										<small class="layer">
+											{ytcms-Video-List:Rand} </small>
+									</a>
+									<a target="_blank" class="title text-sub-title mt-2 mb-3"
+										href="{ytcms-Video-List:DUrl}">{ytcms-Video-List:Name}</a>
+								</div>
+							</div>
+							{/ytcms-Video-List}
+						</div>
+						<div class="row">
+							<div class="my-4 mx-auto" id="wr-page">
+								<script src="{ytcms:$StylePath}/js/jQuery.js"></script>
+								<script src="{ytcms:$StylePath}/js/page.js?t=1"></script>
+								<script type="text/javascript">
+									$("#wr-page").wrpage({
+										pagesize: '{ytcms-Video-List:totalPage}',
+										wr_current: '{ytcms-Video-List:currentPage}',
+										baseUrl: '{ytcms-Video-List:baseUrl}',
+									})
+								</script>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		{ytcms-include:Footer}
+	</body>
+</html>
+<style>
+	.my-4 a{
+		color: #666!important;
+		padding: 0 10px;
+		border: 1px solid #c6c6c6;
+	}
+	.pagination {
+		height: 32px;
+		line-height: 32px;
+		margin-bottom: 20px;
+		margin-top: 20px;
+		text-align: center
+	}
+	
+	.pagination a {
+		background-color: #f1f1f1;
+		color: #777;
+		display: inline-block;
+		margin-right: 2px;
+		padding: 0 12px
+	}
+	
+	.pagination a:hover,
+	.pagination strong {
+		background-color: #ff5757;
+		color: #fff;
+		text-shadow: 1px 1px 1px #ff5757
+	}
+	
+	.pagination strong {
+		display: inline-block;
+		font-weight: 400;
+		height: 32px;
+		line-height: 32px;
+		margin-right: 2px;
+		padding: 0 12px
+	}
+	
+	.pagination a,
+	.pagination strong {
+		border-radius: 3px
+	}
+	
+	@media (min-width:769px) {
+		.pagination a.hidden-xs {
+			display: inline-block
+		}
+	
+		.pagination a.visible-xs {
+			display: none
+		}
+	}
+	
+	@media (max-width:769px) {
+		.pagination a.hidden-xs {
+			display: none
+		}
+	
+		.pagination a.visible-xs {
+			display: inline-block
+		}
+	}
+	
+	@media (max-width:328px) {
+		.pagination a {
+			background-color: #f1f1f1;
+			color: #777;
+			display: inline-block;
+			margin-right: 2px;
+			padding: 0 10px
+		}
+	}
+</style>

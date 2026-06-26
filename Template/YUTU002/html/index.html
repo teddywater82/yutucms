@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}</title>
+		<meta name="author" content="{ytcms:$WebKeywords}">
+		<meta name="keywords" content="{ytcms:$WebKeywords}">
+		<meta name="description" content="{ytcms:$WebDescription}">
+		<!-- <link href="{ytcms:$StylePath}/css/style.css" rel="stylesheet"> -->
+		<link href="{ytcms:$StylePath}/css/app.css" rel="stylesheet">
+		<link href="{ytcms:$StylePath}/css/theme.css" rel="stylesheet">
+		<link href="{ytcms:$StylePath}/css/dialog.css" rel="stylesheet">
+		<link href="{ytcms:$StylePath}/css/share-url.css" rel="stylesheet">
+	</head>
+	<body>
+		<!-- 页头 开始 -->
+		{ytcms-include:Header}
+		<!-- 页头 结束 -->
+		<div class="main-content">
+			{ytcms-TAd}
+			 <p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}" style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+			{/ytcms-TAd}
+			<main class="container" id="main-container">
+				<div class="recommend-video">
+					<div class="video-box">
+						<link href="{ytcms:$StylePath}/css/more-bar.css" rel="stylesheet">
+						<div class="more-bar">
+							<h3 class="m-0">{ytcms-Index-Type:1}</h3>
+						</div>
+						<link href="{ytcms:$StylePath}/css/video-list.css" rel="stylesheet">
+						<ul class="video-list-content">
+							{ytcms-Index:Type=1,Count=20}
+							<li class="content-item ">
+								<a class="video-pic loading" href="{ytcms-Index:DUrl}" title="{$vo.vod_name}"
+									target="_blank" style="background-image:url({ytcms-Index:Pic})">
+									<img class="content-img lazy" data-original="{ytcms-Index:Pic}" data-prefix=""
+										data-aes="true" data-loading="{ytcms-Index:Pic}">
+									<span class="player"><img src="{ytcms:$StylePath}/images/play.png" /></span>
+									<span class="note text-bg-r">
+										{ytcms-Index:Rand}</span>
+								</a>
+								<div class="title text-ellipsis">
+									<a href="{ytcms-Index:DUrl}" title="{ytcms-Index:Name}" target="_blank">
+										{ytcms-Index:Name} </a>
+								</div>
+							</li>
+							{/ytcms-Index}
+						</ul>
+					</div>
+				</div>
+				<div class="recommend-video">
+					<div class="video-box">
+						<link href="{ytcms:$StylePath}/css/more-bar.css" rel="stylesheet">
+						<div class="more-bar">
+							<h3 class="m-0">{ytcms-Index-Type:2}</h3>
+						</div>
+						<link href="{ytcms:$StylePath}/css/video-list.css" rel="stylesheet">
+						<ul class="video-list-content">
+							{ytcms-Index:Type=2,Count=20}
+							<li class="content-item ">
+								<a class="video-pic loading" href="{ytcms-Index:DUrl}" title="{$vo.vod_name}"
+									target="_blank" style="background-image:url({ytcms-Index:Pic})">
+									<img class="content-img lazy" data-original="{ytcms-Index:Pic}" data-prefix=""
+										data-aes="true" data-loading="{ytcms-Index:Pic}">
+									<span class="player"><img src="{ytcms:$StylePath}/images/play.png" /></span>
+									<span class="note text-bg-r">
+										{ytcms-Index:Rand}</span>
+								</a>
+								<div class="title text-ellipsis">
+									<a href="{ytcms-Index:DUrl}" title="{ytcms-Index:Name}" target="_blank">
+										{ytcms-Index:Name} </a>
+								</div>
+							</li>
+							{/ytcms-Index}
+						</ul>
+					</div>
+				</div>
+				<div class="recommend-video">
+					<div class="video-box">
+						<link href="{ytcms:$StylePath}/css/more-bar.css" rel="stylesheet">
+						<div class="more-bar">
+							<h3 class="m-0">{ytcms-Index-Type:3}</h3>
+						</div>
+						<link href="{ytcms:$StylePath}/css/video-list.css" rel="stylesheet">
+						<ul class="video-list-content">
+							{ytcms-Index:Type=3,Count=20}
+							<li class="content-item ">
+								<a class="video-pic loading" href="{ytcms-Index:DUrl}" title="{$vo.vod_name}"
+									target="_blank" style="background-image:url({ytcms-Index:Pic})">
+									<img class="content-img lazy" data-original="{ytcms-Index:Pic}" data-prefix=""
+										data-aes="true" data-loading="{ytcms-Index:Pic}">
+									<span class="player"><img src="{ytcms:$StylePath}/images/play.png" /></span>
+									<span class="note text-bg-r">
+										{ytcms-Index:Rand}</span>
+								</a>
+								<div class="title text-ellipsis">
+									<a href="{ytcms-Index:DUrl}" title="{ytcms-Index:Name}" target="_blank">
+										{ytcms-Index:Name} </a>
+								</div>
+							</li>
+							{/ytcms-Index}
+						</ul>
+					</div>
+				</div>
+				<div class="recommend-video">
+					<div class="video-box">
+						<link href="{ytcms:$StylePath}/css/more-bar.css" rel="stylesheet">
+						<div class="more-bar">
+							<h3 class="m-0">{ytcms-Index-Type:4}</h3>
+						</div>
+						<link href="{ytcms:$StylePath}/css/video-list.css" rel="stylesheet">
+						<ul class="video-list-content">
+							{ytcms-Index:Type=4,Count=20}
+							<li class="content-item ">
+								<a class="video-pic loading" href="{ytcms-Index:DUrl}" title="{$vo.vod_name}"
+									target="_blank" style="background-image:url({ytcms-Index:Pic})">
+									<img class="content-img lazy" data-original="{ytcms-Index:Pic}" data-prefix=""
+										data-aes="true" data-loading="{ytcms-Index:Pic}">
+									<span class="player"><img src="{ytcms:$StylePath}/images/play.png" /></span>
+									<span class="note text-bg-r">
+										{ytcms-Index:Rand}</span>
+								</a>
+								<div class="title text-ellipsis">
+									<a href="{ytcms-Index:DUrl}" title="{ytcms-Index:Name}" target="_blank">
+										{ytcms-Index:Name} </a>
+								</div>
+							</li>
+							{/ytcms-Index}
+						</ul>
+					</div>
+				</div>
+			</main>
+		</div>
+		{ytcms-include:Footer}
+	</body>
+</html>
+<style>
+	#bottomNav {
+		background-color: #fff0;
+		z-index: 999;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		_position: absolute;
+		/* for IE6 */
+		_top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight);
+		/* for IE6 */
+		overflow: visible;
+		display: none
+	}
+
+	#MyDiv img {
+		display: block;
+		width: 100%;
+	}
+
+	.code {
+		position: absolute;
+		right: 0px;
+		top: 0px;
+	}
+
+	.code a {
+		font-size: 1.8rem;
+		text-decoration: none;
+	}
+
+	@media only screen and (min-width: 320px) and (max-width: 640px) {
+		#bottomNav {
+			display: block
+		}
+	}
+
+
+	.main-content {
+		min-height: 700px;
+		overflow: auto;
+	}
+
+
+
+	@media screen and (max-width:738px) {
+		.main-content {
+			width: 92%;
+			margin: 0 auto;
+			margin-bottom: 80px;
+		}
+
+		.header-fix {
+			/* position: fixed; */
+			top: 0;
+			width: 100%;
+			z-index: 999;
+		}
+
+		.header-menu {
+			/* margin-top: 50px; */
+		}
+	}
+</style>

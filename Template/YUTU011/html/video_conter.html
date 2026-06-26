@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms:$ListName}-{ytcms:$Name}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms:$ListName},{ytcms:$Name}">
+		<link id="layuicss-laydate" rel="stylesheet" href="{ytcms:$StylePath}/css/autoptimize.css" media="all">
+		<link id="layuicss-layer" rel="stylesheet" href="{ytcms:$StylePath}/css/iconfont.css" media="all">
+		<script src='{ytcms:$StylePath}/js/jquery.min.js'></script>
+		<script src="{ytcms:$StylePath}/js/autoptimize.js" type="application/javascript"></script>
+		<style>
+			@media (min-width: 768px) {
+				.topo-menu ul a {
+					display: block;
+					padding: 0 10px;
+					line-height: 42px;
+					color: #fff;
+					font-size: 18px;
+					font-weight: 500;
+					width: 122.01px;
+					height: 42px;
+					border-radius: 10px;
+					text-align: center;
+					font-size: 1rem;
+				}
+
+				.logo-nome {
+					color: #fff;
+					background-color: #161616;
+					font-size: 26px;
+					font-weight: 600;
+					height: 40px;
+					display: inline-block;
+					padding: 10px 0px 0;
+				}
+			}
+
+			.paginacao li a.dqy {
+				color: #FF0000;
+			}
+		</style>
+	</head>
+	<body class="archive category category-porn category-58">
+		{ytcms-include:Header}
+		<div class="meio">
+			<div class="container">
+				{ytcms-TAd}
+				<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}"
+							style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+				{/ytcms-TAd}
+				<div class="vod-box">
+					{ytcms:$Play}
+				</div>
+				<div class="relacionadosLista">
+					<div class="videos">
+						<h3><i class="icon iconfont icon-yonghu"></i> 猜你喜欢</h3>
+						{ytcms-Video-Popular:Count=18}
+						<div class="video">
+							<div class="video-thumb">
+								<a href="{ytcms-Video-Popular:DUrl}" class="thumb">
+									<img width="352" height="198" src="{ytcms-Video-Popular:Pic}" data-src="{ytcms-Video-Popular:Pic}"
+										class=" ls-is-cached lazyloaded">
+									<span class="video-play"></span>
+									<span class="video-preview"></span>
+									<span class="video-slider"></span>
+								</a>
+							</div>
+							<a href="{ytcms-Video-Popular:DUrl}">
+								<span class="video-titulo">
+									{ytcms-Video-Popular:Name}
+								</span>
+							</a>
+							<div class="clearfix"></div>
+						</div>
+						{/ytcms-Video-Popular}
+					</div>
+				</div>
+			</div>
+		</div>
+		{ytcms-include:Footer}
+	</body>
+</html>
+<style>
+	.vod-box {
+		height: 600px;
+	}
+
+	@media (max-width: 640px) {
+		.vod-box {
+			height: 180px;
+		}
+	}
+</style>

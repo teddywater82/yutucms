@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta data-n-head="1" charset="utf-8">
+		<meta data-n-head="1" data-hid="description" name="description" content="">
+		<meta data-n-head="1" name="format-detection" content="telephone=no">
+		<meta data-n-head="1" name="viewport" content="width=device-width, initial-scale=1">
+		<meta data-n-head="1" name="theme-color" content="#000000">
+		<title>{ytcms:$WebTitle}</title>
+		<meta name="author" content="{ytcms:$WebKeywords}">
+		<meta name="keywords" content="{ytcms:$WebKeywords}">
+		<meta name="description" content="{ytcms:$WebDescription}">
+		<link id="layuicss-laydate" rel="stylesheet" href="{ytcms:$StylePath}/css/app.css" media="all">
+		<script src='{ytcms:$StylePath}/js/jquery.min.js'></script>
+	</head>
+	<body>
+		{ytcms-include:Header}
+		<div class="is-home pb-4">
+			<div class="sm:container mx-auto mb-4 px-4">
+				{ytcms-TAd}
+				<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}"
+							style="width:{ytcms-TAd:Width};"></a></p>
+				{/ytcms-TAd}
+				<div class="flex items-center justify-between pt-6 pb-6">
+					<div class="flex-1 min-w-0">
+						<h2 class="text-2xl font-bold leading-7 text-nord6 sm:text-3xl sm:truncate">{ytcms-Index-Type:1}</h2>
+					</div>
+				</div>
+				<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
+					{ytcms-Index:Type=1,Count=12}
+					<div class="thumbnail group"> <a href="{ytcms-Index:DUrl}" class="text-secondary group-hover:text-primary">
+							<div class="relative aspect-w-16 aspect-h-9 rounded overflow-hidden shadow-lg"> <img class="lozad w-full"
+									data-src="{ytcms-Index:Pic}"
+									src="{ytcms-Index:Pic}"
+									alt="{ytcms-Index:Name}"> <span
+									class="absolute bottom-1 right-1 rounded-lg px-2 py-1 text-xs text-nord5 bg-red-800 bg-opacity-75 box-tag vip">{ytcms-Index-Type:1}</span>
+								<span
+									class="absolute bottom-1 left-1 rounded-lg px-2 py-1 text-xs text-nord5 bg-red-800 bg-opacity-75">{ytcms-Index:Rand}</span>
+							</div>
+							<div class="my-2 text-sm text-nord4 truncate title">{ytcms-Index:Name}</div>
+						</a> 
+						</div>
+				{/ytcms-Index}
+				</div>
+				
+				<div class="flex items-center justify-between pt-6 pb-6">
+					<div class="flex-1 min-w-0">
+						<h2 class="text-2xl font-bold leading-7 text-nord6 sm:text-3xl sm:truncate">{ytcms-Index-Type:2}</h2>
+					</div>
+				</div>
+				<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
+					{ytcms-Index:Type=2,Count=12}
+					<div class="thumbnail group"> <a href="{ytcms-Index:DUrl}" class="text-secondary group-hover:text-primary">
+							<div class="relative aspect-w-16 aspect-h-9 rounded overflow-hidden shadow-lg"> <img class="lozad w-full"
+									data-src="{ytcms-Index:Pic}"
+									src="{ytcms-Index:Pic}"
+									alt="{ytcms-Index:Name}"> <span
+									class="absolute bottom-1 right-1 rounded-lg px-2 py-1 text-xs text-nord5 bg-red-800 bg-opacity-75 box-tag vip">{ytcms-Index-Type:2}</span>
+								<span
+									class="absolute bottom-1 left-1 rounded-lg px-2 py-1 text-xs text-nord5 bg-red-800 bg-opacity-75">{ytcms-Index:Rand}</span>
+							</div>
+							<div class="my-2 text-sm text-nord4 truncate title">{ytcms-Index:Name}</div>
+						</a> 
+						</div>
+				{/ytcms-Index}
+				</div>
+				
+				<div class="flex items-center justify-between pt-6 pb-6">
+					<div class="flex-1 min-w-0">
+						<h2 class="text-2xl font-bold leading-7 text-nord6 sm:text-3xl sm:truncate">{ytcms-Index-Type:3}</h2>
+					</div>
+				</div>
+				<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
+					{ytcms-Index:Type=3,Count=12}
+					<div class="thumbnail group"> <a href="{ytcms-Index:DUrl}" class="text-secondary group-hover:text-primary">
+							<div class="relative aspect-w-16 aspect-h-9 rounded overflow-hidden shadow-lg"> <img class="lozad w-full"
+									data-src="{ytcms-Index:Pic}"
+									src="{ytcms-Index:Pic}"
+									alt="{ytcms-Index:Name}"> <span
+									class="absolute bottom-1 right-1 rounded-lg px-2 py-1 text-xs text-nord5 bg-red-800 bg-opacity-75 box-tag vip">{ytcms-Index-Type:3}</span>
+								<span
+									class="absolute bottom-1 left-1 rounded-lg px-2 py-1 text-xs text-nord5 bg-red-800 bg-opacity-75">{ytcms-Index:Rand}</span>
+							</div>
+							<div class="my-2 text-sm text-nord4 truncate title">{ytcms-Index:Name}</div>
+						</a> 
+						</div>
+				{/ytcms-Index}
+				</div>
+			</div>
+		</div>
+		{ytcms-include:Footer}
+	</body>
+</html>

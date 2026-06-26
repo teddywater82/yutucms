@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms:$ListName}-{ytcms:$Name}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms:$ListName},{ytcms:$Name}">
+		<meta name="description" content="{ytcms:$WebDescription},{ytcms:$ListName},{ytcms:$Name}">
+		<link href="{ytcms:$StylePath}/css/style.css" rel="stylesheet">
+		<link href="{ytcms:$StylePath}/css/app.css" rel="stylesheet">
+		<link href="{ytcms:$StylePath}/css/theme.css" rel="stylesheet">
+		<link href="{ytcms:$StylePath}/css/dialog.css" rel="stylesheet">
+		<link href="{ytcms:$StylePath}/css/share-url.css" rel="stylesheet">
+	</head>
+	<body>
+		<!-- 页头 开始 -->
+		{ytcms-include:Header}
+		<!-- 页头 结束 -->
+		<div class="main-content">
+			{ytcms-DCAd}
+			<p style="margin:5px 0;"><a href="{ytcms-DCAd:Url}" target="_blank"><img src="{ytcms-DCAd:Pic}"
+						style="width:{ytcms-DCAd:Width};height:{ytcms-DCAd:Height};"></a></p>
+			{/ytcms-DCAd}
+			<main class="container" id="main-container">
+				<div class="content clearfix">
+					<div class="embed-responsive embed-responsive-play player-box">
+						{ytcms:$Play}
+					</div>
+					<div class="info">
+						<dl>
+							<dd>{ytcms:$Name}</dd>
+						</dl>
+						<dl class="dl-left mb-dl-left">
+							<dd>{ytcms:$Time}</dd>
+						</dl>
+					</div>
+					</div>
+					<div class="recommend-video">
+						<div class="video-box">
+							<link href="{ytcms:$StylePath}/css/more-bar.css" rel="stylesheet">
+							<div class="more-bar">
+								<h3 class="m-0">相关推荐</h3>
+							</div>
+							<link href="{ytcms:$StylePath}/css/video-list.css" rel="stylesheet">
+							<ul class="video-list-content">
+								{ytcms-Video-Popular:Count=20}
+								<li class="content-item ">
+									<a class="video-pic loading" href="{ytcms-Video-Popular:DUrl}"" title="{ytcms-Video-Popular:Name}"
+										target="_blank" style="background-image:url({ytcms-Video-Popular:Pic})">
+										<img class="content-img lazy" data-original="{ytcms-Video-Popular:Pic}" data-prefix=""
+											data-aes="true" data-loading="{ytcms-Video-Popular:Pic}">
+										<span class="player"><img src="{ytcms:$StylePath}/images/play.png" /></span>
+										<span class="note text-bg-r">
+											{ytcms-Index:Rand}</span>
+									</a>
+									<div class="title text-ellipsis">
+										<a href="{ytcms-Video-Popular:DUrl}"" title="{ytcms-Video-Popular:Name}" target="_blank">
+											{ytcms-Video-Popular:Name} </a>
+									</div>
+								</li>
+								{/ytcms-Video-Popular}
+							</ul>
+						</div>
+					</div>
+			</main>
+		</div>
+<!-- 			<div class="con full-top">
+				<div class="row clearfix">
+					<div class="row-l">
+						<div class="stit itit clearfix"><span class="name">相关推荐</span></div>
+						<ul class="ul clearfix">
+							{ytcms-Video-Popular:Count=36}
+							<li><a href="{ytcms-Video-Popular:DUrl}" title="{ytcms-Video-Popular:Name}" class="link">
+									<div class="img"><img src="{ytcms-Video-Popular:Pic}"
+											alt="{ytcms-Video-Popular:Name}"><span class="bgb"><i class="bgbbg"></i>
+											<p class="name">{ytcms-Video-Popular:Name}</p>
+										</span></div>
+								</a></li>
+							{/ytcms-Video-Popular}
+						</ul>
+					</div>
+				</div>
+			</div> -->
+		</div>
+		<!-- 页尾 开始 -->
+		{ytcms-include:Footer}
+		<!-- 页尾 结束 -->
+		<script src="{ytcms:$StylePath}/js/lazyload.min.js"></script>
+		<script src="{ytcms:$StylePath}/js/tpl.js"></script>
+		<script src="{ytcms:$StylePath}/js/language.js"></script>
+		<script>
+			if ({
+					9 CCMS: $WebUserLimit
+				}) { //限制开关
+				$(document).ready(function() {
+					userKey = "user_info";
+					console.log($.cookie(userKey));
+					userInfo = JSON.parse($.cookie(userKey));
+					$.ajax({
+						type: "GET",
+						url: '/Php/Home/userinfo.php',
+						beforeSend: function() {},
+						success: function(res) {
+							userInfo = JSON.parse($.cookie(userKey));
+							console.log(userInfo)
+							if (userInfo != null) {
+								if (userInfo.leftNum < 1) {
+									$('#playtip').show();
+									$('.player-box').html('');
+								}
+							}
+						},
+						error: function(err) {
+							alert('获取用户id失败!');
+						}
+					})
+				});
+			}
+		</script>
+	</body>
+</html>
+<style>
+	@media only screen and (min-width: 720px) {
+		.row-l .ul li {
+			width: 166px;
+			margin: 20px 20px 0px 0;
+		}
+
+		.content .info dl {
+			height: 45px;
+			line-height: 36px;
+			width: 100%;
+			padding-top: 10px;
+		}
+	}
+
+	@media screen and (min-width: 769px) {
+		.content img {
+			clear: both;
+			margin: 10px 0;
+			width: 100%;
+			overflow: hidden;
+		}
+	}
+</style>

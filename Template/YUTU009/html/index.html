@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta data-n-head="1" charset="utf-8">
+		<meta data-n-head="1" data-hid="description" name="description" content="">
+		<meta data-n-head="1" name="format-detection" content="telephone=no">
+		<meta data-n-head="1" name="viewport" content="width=device-width, initial-scale=1">
+		<meta data-n-head="1" name="theme-color" content="#000000">
+		<title>{ytcms:$WebTitle}</title>
+		<meta name="author" content="{ytcms:$WebKeywords}">
+		<meta name="keywords" content="{ytcms:$WebKeywords}">
+		<meta name="description" content="{ytcms:$WebDescription}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/ate.css" />
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/zui.css" />
+	<body>
+		{ytcms-include:Header}
+		<div class="content">
+			<div class="container">
+				
+				<div class="appel">
+					{ytcms-TAd}
+					<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}"
+								style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+					{/ytcms-TAd}
+					<div class="mhlleset clearfix">
+						<div class="mhlleset-main">
+							<div class="appel-heading clearfix">
+								<h3 class="appel-title">{ytcms-Index-Type:1}</h3>
+							</div>
+							<ul class="thumbnail-group clearfix">
+								{ytcms-Index:Type=1,Count=12}
+								<li>
+									<a class="thumbnail" href="{ytcms-Index:DUrl}" target="_blank"><img
+											class="loadi" data-original="{ytcms-Index:Pic}" src="{ytcms-Index:Pic}" style="display: block;"><span
+											class="video-grade"></span></a>
+									<div class="video-info">
+										<h5><a href="{ytcms-Index:DUrl}" target="_blank">{ytcms-Index:Name}</a></h5>
+										<p class="vodtitle"><span class="title">
+												{ytcms-Index-Type:1}-观看: {ytcms-Index:Rand}</span></p>
+									</div>
+								</li>
+								{/ytcms-Index}
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="appel">
+					<div class="mhlleset clearfix">
+						<div class="mhlleset-main">
+							<div class="appel-heading clearfix">
+								<h3 class="appel-title">{ytcms-Index-Type:2}</h3>
+							</div>
+							<ul class="thumbnail-group clearfix">
+								{ytcms-Index:Type=2,Count=12}
+								<li>
+									<a class="thumbnail" href="{ytcms-Index:DUrl}" target="_blank"><img
+											class="loadi" data-original="{ytcms-Index:Pic}" src="{ytcms-Index:Pic}" style="display: block;"><span
+											class="video-grade"></span></a>
+									<div class="video-info">
+										<h5><a href="{ytcms-Index:DUrl}" target="_blank">{ytcms-Index:Name}</a></h5>
+										<p class="vodtitle"><span class="title">
+												{ytcms-Index-Type:2}-观看: {ytcms-Index:Rand}</span></p>
+									</div>
+								</li>
+								{/ytcms-Index}
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="appel">
+					<div class="mhlleset clearfix">
+						<div class="mhlleset-main">
+							<div class="appel-heading clearfix">
+								<h3 class="appel-title">{ytcms-Index-Type:3}</h3>
+							</div>
+							<ul class="thumbnail-group clearfix">
+								{ytcms-Index:Type=3,Count=12}
+								<li>
+									<a class="thumbnail" href="{ytcms-Index:DUrl}" target="_blank"><img
+											class="loadi" data-original="{ytcms-Index:Pic}" src="{ytcms-Index:Pic}" style="display: block;"><span
+											class="video-grade"></span></a>
+									<div class="video-info">
+										<h5><a href="{ytcms-Index:DUrl}" target="_blank">{ytcms-Index:Name}</a></h5>
+										<p class="vodtitle"><span class="title">
+												{ytcms-Index-Type:3}-观看: {ytcms-Index:Rand}</span></p>
+									</div>
+								</li>
+								{/ytcms-Index}
+							</ul>
+						</div>
+					</div>
+				</div>
+				{ytcms-include:Footer}
+			</div>
+		</div>
+	</body>
+</html>

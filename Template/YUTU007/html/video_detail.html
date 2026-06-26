@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms:$ListName}-{ytcms:$Name}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms:$ListName},{ytcms:$Name}">
+		<meta name="description" content="{ytcms:$WebDescription},{ytcms:$ListName},{ytcms:$Name}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/app.css" />
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/all.css" />
+	<body style="padding-bottom: 0px !important;">
+		{ytcms-include:Header}
+		<main id="main">
+			<div class="container-fluid mb-3 p-0">
+				{ytcms-TAd}
+				<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}"
+							style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+				{/ytcms-TAd}
+			</div>
+			<div id="videoShowPage">
+				<div class="row">
+					<div class="left col-60 offset-md-10 col-md-40">
+						<div class="videoPlayContainer">
+							<img style="width: 100%;" src="{ytcms:$Pic}" />
+						</div>
+						<h4 class="container-title py-3 mb-0">{ytcms:$Name}</h4>
+						<div class="videoInfos d-flex text-normal justify-content-between align-items-center">
+							<div class="options">
+								<span class="likeBtn cursor-p mx-2 digg_link" data-id="81" data-mid="1" data-type="up">
+									<i class="fas fa-thumbs-up"></i>
+									<span class="digg_num">{ytcms-Index:Rand}</span>
+								</span>
+							</div>
+						</div>
+						<div class="tab-content" id="nav-tabContent">
+							<div class="tab-pane fade my-4 active show" id="videoShowTabAbout">
+								<div class="d-flex justify-content-between">
+									<div>
+										<div class="playChannel d-inline-block ml-2 text-small free">
+											<a href="{ytcms:$CUrl}" target="_blank"><span
+													style="padding: 5px 10px;background: #e3e3e3;border-radius: 5px;">在线播放</span></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-60">
+						<div class="row mb-2">
+							<h5 class="container-title col-60">猜你喜欢</h5>
+						</div>
+						<div class="row">
+								{ytcms-Video-Popular:Count=8}
+							<div class="colVideoList">
+								<div class="video-elem">
+									<a target="_blank" class="display d-block" href="{ytcms-Video-Popular:DUrl}">
+										<div class="scale"></div>
+										<div class="img"
+											style="background-image: url('{ytcms-Video-Popular:Pic}')">
+										</div>
+										<small class="layer">
+											{ytcms-Video-Popular:Rand}</small>
+									</a>
+									<a target="_blank" class="title text-sub-title mt-2 mb-3"
+										href="{ytcms-Video-Popular:DUrl}">{ytcms-Video-Popular:Name}</a>
+								</div>
+							</div>
+								{/ytcms-Video-Popular}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		{ytcms-include:Footer}
+	</body>
+</html>

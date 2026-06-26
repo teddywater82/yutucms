@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta data-n-head="1" charset="utf-8">
+		<meta data-n-head="1" data-hid="description" name="description" content="">
+		<meta data-n-head="1" name="format-detection" content="telephone=no">
+		<meta data-n-head="1" name="viewport" content="width=device-width, initial-scale=1">
+		<meta data-n-head="1" name="theme-color" content="#000000">
+		<title>{ytcms:$WebTitle}</title>
+		<meta name="author" content="{ytcms:$WebKeywords}">
+		<meta name="keywords" content="{ytcms:$WebKeywords}">
+		<meta name="description" content="{ytcms:$WebDescription}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/style.css" />
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/new.css" />
+	<body>
+		<div class="page unselect">
+			<div class="ts-wrap">
+				<div class="Utop">
+					{ytcms-include:Header}
+				</div>
+				{ytcms-TAd}
+				<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}" style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+				{/ytcms-TAd}
+			</div>
+			<div class="wrapper">
+				<div class="ts-wrap">
+					<div class="UStop">
+						<h5>精品推荐</h5>
+						<span>严选精品值得观看</span>
+					</div>
+					<ul class="cate-section">
+						{ytcms-Index:Type=1,Count=6}
+						<li class="article" style="width: 46%;">
+							<a href="{ytcms-Index:DUrl}">
+								<img src="{ytcms-Index:Pic}" alt="{ytcms-Index:Name}" />
+								<div id="radius">
+									<img src="{ytcms:$StylePath}/img/vod.png" alt="" />
+								</div>
+								<span class="statusIco zbz2" rowspan="2" style="font-size: 12px;">{ytcms-Index:Rand}人观看</span>
+							</a>
+							<h2 style="font-size: 14px;">{ytcms-Index:Name}</h2>
+						</li>
+						{/ytcms-Index}
+					</ul>
+				</div>
+			</div>
+			<div class="wrapper">
+				<div class="ts-wrap">
+					<div class="UStop">
+						<h5>国产精品</h5>
+						<span>优选国产必看推荐</span>
+					</div>
+					<ul class="cate-section">
+						{ytcms-Index:Type=2,Count=6}
+						<li class="article" style="width: 46%;">
+							<a href="{ytcms-Index:DUrl}">
+								<img src="{ytcms-Index:Pic}" alt="{ytcms-Index:Name}" />
+								<div id="radius">
+									<img src="{ytcms:$StylePath}/img/vod.png" alt="" />
+								</div>
+								<span class="statusIco zbz2" rowspan="2" style="font-size: 12px;">{ytcms-Index:Rand}人观看</span>
+							</a>
+							<h2 style="font-size: 14px;">{ytcms-Index:Name}</h2>
+						</li>
+						{/ytcms-Index}
+					</ul>
+				</div>
+			</div>
+			<div class="wrapper">
+				<div class="ts-wrap">
+					<div class="UStop">
+						<h5>中文字幕</h5>
+					</div>
+					<ul class="cate-section">
+						{ytcms-Index:Type=6,Count=6}
+						<li class="article" style="width: 46%;">
+							<a href="{ytcms-Index:DUrl}">
+								<img src="{ytcms-Index:Pic}" alt="{ytcms-Index:Name}" />
+								<div id="radius">
+									<img src="{ytcms:$StylePath}/img/vod.png" alt="" />
+								</div>
+								<span class="statusIco zbz2" rowspan="2" style="font-size: 12px;">{ytcms-Index:Rand}人观看</span>
+							</a>
+							<h2 style="font-size: 14px;">{ytcms-Index:Name}</h2>
+						</li>
+						{/ytcms-Index}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="foot">
+			{ytcms-include:Footer}
+		</div>
+	</body>
+</html>

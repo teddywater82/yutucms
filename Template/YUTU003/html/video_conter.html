@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms:$ListName}-{ytcms:$Name}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms:$ListName},{ytcms:$Name}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/style.css" />
+	</head>
+	<!-- <body class="home blog wp-custom-logo hfeed"> -->
+		<!-- <div id="page" class="site"> -->
+			{ytcms-include:Header}
+			<div class="wrap">
+				{ytcms-DCAd}
+				<p style="margin:5px 0;"><a href="{ytcms-DCAd:Url}" target="_blank"><img src="{ytcms-DCAd:Pic}" style="width:{ytcms-DCAd:Width};height:{ytcms-DCAd:Height};"></a></p>
+				{/ytcms-DCAd}
+			</div>
+			<div class="wrap">
+				<div class="main">
+					<h1>{ytcms:$Name}</h1>
+					<div class="content clearfix">
+						<div class="player">
+							<div class="player-wrap">
+								<div class="player-box">
+									<div id="player" style="width:100%;height:100%;">
+										{ytcms:$Play}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="mod play-list">
+					<div class="title"><h3>猜你喜欢看的视频</h3></div>
+					<div class="row col5 clearfix">
+						{ytcms-Video-Popular:Count=10}
+						<dl>
+							<dt><a href="{ytcms-Video-Popular:DUrl}" title="{ytcms-Video-Popular:Name}" target="_blank"><img class="nature" src="{ytcms-Video-Popular:Pic}" /><i>{ytcms-Video-Popular:Rand}</i></a></dt>
+							<dd><a href="{ytcms-Video-Popular:DUrl}" title="{ytcms-Video-Popular:Name}" target="_blank"><h3>{ytcms-Video-Popular:Name}</h3></a></dd>
+						</dl>
+						{/ytcms-Video-Popular}
+					</div>
+				</div>
+			</div>
+		{ytcms-include:Footer}
+	</body>
+</html>

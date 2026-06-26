@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta data-n-head="1" charset="utf-8">
+		<meta data-n-head="1" data-hid="description" name="description" content="">
+		<meta data-n-head="1" name="format-detection" content="telephone=no">
+		<meta data-n-head="1" name="theme-color" content="#000000">
+		<title>{ytcms:$WebTitle}</title>
+		<meta name="author" content="{ytcms:$WebKeywords}">
+		<meta name="keywords" content="{ytcms:$WebKeywords}">
+		<meta name="description" content="{ytcms:$WebDescription}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/app.css" />
+		<meta data-n-head="1" name="viewport" content="width=device-width, initial-scale=1">
+	<body>
+		{ytcms-include:Header}
+		<div class="max">
+			{ytcms-TAd}
+			<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}"
+						style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+			{/ytcms-TAd}
+			<div id="homeWrap" class="content home">
+				<div class="video_box">
+					<div class="title">
+						<h6>精品推荐</h6>
+					</div>
+					<div class="video-box">
+						{ytcms-Index:Type=1,Count=12}
+						<div class="video-item">
+							<div class="img-box">
+								<a href="{ytcms-Index:DUrl}">
+									<img src="{ytcms-Index:Pic}" class="nature" alt="{ytcms-Index:Name}" />
+								</a>
+							</div>
+							<div class="txt-ellipsis-2">
+								<a href="{ytcms-Index:DUrl}">{ytcms-Index:Name}</a>
+							</div>
+						</div>
+						{/ytcms-Index}
+					</div>
+				</div>
+				<div class="video_box">
+					<div class="title">
+						<h6>国产精品</h6>
+					</div>
+					<div class="video-box">
+						{ytcms-Index:Type=2,Count=12}
+						<div class="video-item">
+							<div class="img-box">
+								<a href="{ytcms-Index:DUrl}">
+									<img src="{ytcms-Index:Pic}" class="nature" alt="{ytcms-Index:Name}" />
+								</a>
+							</div>
+							<div class="txt-ellipsis-2">
+								<a href="{ytcms-Index:DUrl}">{ytcms-Index:Name}</a>
+							</div>
+						</div>
+						{/ytcms-Index}
+					</div>
+				</div>
+				<div class="video_box">
+					<div class="title">
+						<h6>中文字幕</h6>
+					</div>
+					<div class="video-box">
+						{ytcms-Index:Type=6,Count=12}
+						<div class="video-item">
+							<div class="img-box">
+								<a href="{ytcms-Index:DUrl}">
+									<img src="{ytcms-Index:Pic}" class="nature" alt="{ytcms-Index:Name}" />
+								</a>
+							</div>
+							<div class="txt-ellipsis-2">
+								<a href="{ytcms-Index:DUrl}">{ytcms-Index:Name}</a>
+							</div>
+						</div>
+						{/ytcms-Index}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="foot">
+			{ytcms-include:Footer}
+		</div>
+	</body>
+</html>

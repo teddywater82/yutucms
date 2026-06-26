@@ -1,0 +1,39 @@
+<footer id="colophon" class="site-footer">
+	<div class="clear">
+		警告：如您未滿18歲，或未滿當地法律許可的法定年齡，建議您離開本站！
+	</div>
+	<div class="container">
+		<h3>友情链接:</h3>
+		<div class="btn-url">
+			{ytcms-IeUrl}
+			<a target="_blank" href="{ytcms-IeUrl:Url}">{ytcms-IeUrl:Name}</a>
+			{/ytcms-IeUrl}
+		</div>
+	</div>
+	{ytcms:$WebAdS}
+</footer>
+<style>
+	.site-footer {
+		padding: 60px 0;
+		background: #32353D;
+		color: #C4C7D0;
+		line-height: 30px;
+	}
+	.clear{
+		text-align: center;
+	}
+	.container{
+		padding: 0 10px;
+	}
+	.btn-url{
+		display: flex;
+		gap: 5px;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	@media screen and (max-width: 760px) {
+	    .container{
+	    	margin-bottom: 100px;
+	    }
+	}
+</style>

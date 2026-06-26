@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms:$ListName}-{ytcms:$Name}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms:$ListName},{ytcms:$Name}">
+		<meta name="description" content="{ytcms:$WebDescription},{ytcms:$ListName},{ytcms:$Name}">
+		<link id="layuicss-laydate" rel="stylesheet" href="{ytcms:$StylePath}/css/app.css" media="all">
+		<script src='{ytcms:$StylePath}/js/jquery.min.js'></script>
+	</head>
+	<body>
+		{ytcms-include:Header}
+		<div class="is-home pb-4">
+			<div class="sm:container mx-auto mb-4 px-4">
+				{ytcms-TAd}
+				<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}" style="width:{ytcms-TAd:Width};"></a></p>
+				{/ytcms-TAd}
+				<div class="sm:container mx-auto px-4 pt-8">
+					<div class="flex">
+						<div class="flex-1 order-first">
+							<div class="relative -mx-4 -mt-6 sm:m-0 video-img">
+								<a href="{ytcms:$CUrl}">
+									<img src="{ytcms:$Pic}"
+										data-src="{ytcms:$Pic}"
+										class="shadow-lg">
+								</a>
+							</div>
+							<div class="sm:mx-0 mb-8 rounded-0 sm:rounded-lg" style="margin-top:1.5rem;">
+								<div class="mb-4">
+									<div class="mb-1 text-secondary break-all line-clamp-2" style="font-weight:600;color: #edeeef;">
+										{ytcms:$Name}</div>
+								</div>
+								<div class="space-y-2">
+									<div class="text-secondary"> <span class="font-medium" style="color: #8e9194;">{ytcms:$Time}</span> </div>
+								</div>
+								<div class="" id="playlist" style="margin-left: -4px;margin-right: -4px;">
+									<div class="play-list-wrap"> <a class="play-url active" href="{ytcms:$CUrl}"
+											style="width:10rem;display: flex;justify-content: center;">
+											<div style="display: flex;flex-wrap: wrap;align-content: center;"> <svg
+													xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="white" stroke-width="2"
+													stroke-linecap="round" stroke-linejoin="round" fill="none">
+													<circle cx="12" cy="12" r="10"></circle>
+													<polygon points="10 8 16 12 10 16 10 8"></polygon>
+												</svg> </div> 立即播放
+										</a> </div>
+								</div>
+							</div>
+							<div class="relative">
+								<div class="title-with-more">
+									<div class="title-box">
+										<h6 class="sub-title inactive-color" style="color: #888;">推荐</h6>
+										<h2 class="h3-md text-nord6">猜你喜欢</h2>
+									</div>
+								</div>
+								<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
+									{ytcms-Video-Popular:Count=8}
+									<div class="thumbnail group"> 
+									<a href="{ytcms-Video-Popular:DUrl}" class="text-secondary group-hover:text-primary">
+											<div class="relative aspect-w-16 aspect-h-9 rounded overflow-hidden shadow-lg"> 
+											<img class="lozad w-full" data-src="{ytcms-Video-Popular:Pic}"
+													src="{ytcms-Video-Popular:Pic}"
+													alt="{ytcms-Video-Popular:Name}"> 
+													<span class="absolute bottom-1 left-1 rounded-lg px-2 py-1 text-xs text-nord5 bg-red-800 bg-opacity-75">{ytcms-Video-Popular:Rand}</span>
+											</div>
+											<div class="my-2 text-sm text-nord4 truncate title">{ytcms-Video-Popular:Name}</div>
+										</a> 
+									</div>
+							{/ytcms-Video-Popular}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{ytcms-include:Footer}
+	</body>
+</html>

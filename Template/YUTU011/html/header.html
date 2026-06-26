@@ -1,0 +1,47 @@
+<div class="fundo"></div>
+<header class="topo">
+	<div class="container">
+		<div class="topo-conteudo">
+			<div class="topo-logo">
+				<button class="botao-menu" id="botao-menu" style=""><i class="bg-bars_solid"></i></button>
+				<a title="" href="/"><span class="logo-nome">{ytcms:$WebTitle}</span></a>
+				<button class="botao-busca" onclick="mostraDiv('busca')">
+					<i class="bg-search_solid"></i>
+				</button>
+			</div>
+			<div class="busca" id="busca">
+				<form>
+					<input type="text" name="search" placeholder="输入关键字..." value="" />
+					<button type="submit" class="busca-submit">
+						<i class="bg-search_solid_black"></i>
+						<span>搜索</span>
+					</button>
+				</form>
+			</div>
+			<div class="clearfix"></div>
+			<div class="topo-menu" id="topo-menu" style="">
+				<ul id="menu-menu" class="menu">
+					<li class="menu-item-1" class="menu-item">
+						<a href="/" rel="nofollow">网站首页</a>
+					</li>
+					{ytcms:Type=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32}
+					<li class="menu-item">
+						<a href="{ytcms:Url}" rel="nofollow">{ytcms:Name}</a>
+					</li>
+						{/ytcms:Type}
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</header>
+<style>
+	.center-text {
+		text-align: center;
+	}
+</style>
+<div class="center-text">
+	<p>建议收藏本站永久地址:【<a href="{ytcms:$WEBUrl}">{ytcms:$WEBUrl}</a>】
+</div>
+

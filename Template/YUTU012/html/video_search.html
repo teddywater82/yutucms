@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms-Search-List:Title}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms-Search-List:Title}">
+		<meta name="description" content="{ytcms:$WebDescription},{ytcms-Search-List:Title}">
+		<link id="layuicss-laydate" rel="stylesheet" href="{ytcms:$StylePath}/css/bulma.min.css" media="all">
+		<link id="layuicss-layer" rel="stylesheet" href="{ytcms:$StylePath}/css/sour.css" media="all">
+		<script src='{ytcms:$StylePath}/js/jquery.min.js'></script>
+	</head>
+	<body>
+		{ytcms-include:Header}
+		<div class="vod-box container">
+			{ytcms-TAd}
+			<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}"
+						style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+			{/ytcms-TAd}
+			<div class="c-type-box">
+				<a class="button is-small has-text-weight-bold  is-danger" href="/" id="flag">首页</a>
+				{ytcms:Type=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25}
+				<a class="button is-small has-text-weight-bold  is-danger" href="{ytcms:Url}" id="flag">{ytcms:Name}</a>
+				{/ytcms:Type}
+			</div>
+			<div class="columns is-mobile is-multiline is-variable is-1">
+				{ytcms-Search-List:Count=20}
+				﻿ <div class="column is-half-mobile is-one-quarter-desktop vod-item-box is-half-touch">
+					<a target="_blank" href="{ytcms-Search-List:DUrl}">
+						<figure class="image is-16by9">
+							<img src="{ytcms-Search-List:Pic}"
+								onerror="javascript:this.src='/static/template/cangku/image/loading.jpg';" alt="{ytcms-Index:Name}"
+								class="lazy" data-original="{ytcms-Search-List:Pic}">
+						</figure>
+						<p class="vod-name is-size-7 has-text-dark has-text-weight-bold">{ytcms-Search-List:Name}</p>
+						<p class="vod-class has-text-grey">观看：{ytcms-Index:Rand}</p>
+					</a>
+				</div>
+				{/ytcms-Search-List}
+			</div>
+			<div class="pagina" id="wr-page">
+				<script src="{ytcms:$StylePath}/js/jQuery.js"></script>
+				<script src="{ytcms:$StylePath}/js/page.js?t=1"></script>
+				<script type="text/javascript">
+					$("#wr-page").wrpage({
+						pagesize: '{ytcms-Search-List:totalPage}',
+						wr_current: '{ytcms-Search-List:currentPage}',
+						baseUrl: '{ytcms-Search-List:baseUrl}',
+					})
+				</script>
+			</div>
+		</div>
+		{ytcms-include:Footer}
+	</body>
+</html>
+<style type="text/css">
+	.pagina {
+		text-align: center;
+	}
+
+	.pagina a {
+		background-color: #f1f1f1;
+		color: #777;
+		display: inline-block;
+		margin-right: 2px;
+		padding: 0 12px
+	}
+
+	.pagina a:hover,
+	.pagina strong {
+		background-color: #ff5757;
+		color: #fff;
+		text-shadow: 1px 1px 1px #ff5757
+	}
+
+	.pagina strong {
+		display: inline-block;
+		font-weight: 400;
+		height: 32px;
+		line-height: 32px;
+		margin-right: 2px;
+		padding: 0 12px
+	}
+
+	.pagina a,
+	.pagina strong {
+		border-radius: 3px
+	}
+
+	@media (min-width:769px) {
+		.pagina a.hidden-xs {
+			display: inline-block
+		}
+
+		.pagina a.visible-xs {
+			display: none
+		}
+	}
+
+	@media (max-width:769px) {
+		.pagina a.hidden-xs {
+			display: none
+		}
+
+		.pagina a.visible-xs {
+			display: inline-block
+		}
+	}
+
+	@media (max-width:328px) {
+		.pagina a {
+			background-color: #f1f1f1;
+			color: #777;
+			display: inline-block;
+			margin-right: 2px;
+			padding: 0 10px
+		}
+	}
+</style>

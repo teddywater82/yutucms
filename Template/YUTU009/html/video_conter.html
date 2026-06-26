@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms:$ListName}-{ytcms:$Name}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms:$ListName},{ytcms:$Name}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/ate.css" />
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/zui.css" />
+	<body>
+		<div class="content">
+			<div class="container">
+				{ytcms-include:Header}
+				<div class="appel">
+					{ytcms-TAd}
+					<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}"
+								style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+					{/ytcms-TAd}
+					<div class="mhlleset clearfix">
+						<div class="mhlleset-main">
+							<div class="appel-heading clearfix">
+								<h3 class="appel-title">{ytcms:$Name}</h3>
+							</div>
+							<div class="detail clearfix">
+								{ytcms:$Play}
+							</div>
+						</div>
+					</div>
+					<div style="background: linear-gradient(39deg,#4ea2ff 22%,#6e8eff 59%,#8e7aff); border-radius: 3px; padding: 3px 5px 3px 5px; text-align: center;">
+					<a data-toggle="modal" style="color: #ffffff;" id="shareQrcode" onclick="copyHtmlLink();">复制链接分享给好友一起欣赏</a><br>--&gt;
+					<span id="thisUrlID" style="color: #ffffff;">{ytcms:$WEBUrl}</span><--
+					<br>
+					</div>
+				</div>
+				<div class="appel">
+					<div class="mhlleset clearfix">
+						<div class="mhlleset-main">
+							<div class="appel-heading clearfix">
+								<h3 class="appel-title">猜你喜欢</h3>
+							</div>
+							<ul class="thumbnail-group clearfix">
+								{ytcms-Video-Popular:Count=16}
+								<li>
+									<a class="thumbnail" href="{ytcms-Video-Popular:DUrl}" target="_blank"><img class="loadi"
+											data-original="{ytcms-Video-Popular:Pic}" src="{ytcms-Video-Popular:Pic}"
+											style="display: block;"><span class="video-grade"></span></a>
+									<div class="video-info">
+										<h5><a href="{ytcms-Video-Popular:DUrl}" target="_blank">{ytcms-Index:Name}</a></h5>
+										<p class="vodtitle"><span class="title">
+												{ytcms:$ListName}-观看: {ytcms-Video-Popular:Rand}</span></p>
+									</div>
+								</li>
+								{/ytcms-Video-Popular}
+							</ul>
+						</div>
+					</div>
+				</div>
+				{ytcms-include:Footer}
+			</div>
+		</div>
+	</body>
+</html>
+<style>
+	.detail{
+		height: 600px;
+	}
+	@media (max-width: 640px) {
+	   .detail{
+	   	height: 180px;
+	   }
+	}
+</style> 

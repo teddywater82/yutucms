@@ -1,0 +1,266 @@
+/* 全局样式重置与基础设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f5f7fa;
+}
+
+/* 布局优化 */
+.tpl-page-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.tpl-content-wrapper {
+    flex: 1;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+/* 标题与面包屑样式 */
+.tpl-content-page-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1f2d3d;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e6eb;
+}
+
+.am-breadcrumb {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.am-breadcrumb > li {
+    position: relative;
+}
+
+.am-breadcrumb > li + li:before {
+    content: "/";
+    color: #ccc;
+    margin: 0 8px;
+}
+
+.am-breadcrumb > li a {
+    color: #4e5969;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.am-breadcrumb > li a:hover {
+    color: #1890ff;
+}
+
+.am-breadcrumb > li.am-active {
+    color: #1890ff;
+    font-weight: 500;
+}
+
+/* 卡片与容器样式 */
+.note {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-left: 4px solid #1890ff;
+}
+
+.note h3 {
+    margin-top: 0;
+    color: #1f2d3d;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.tpl-portlet-components {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.portlet-title {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e5e6eb;
+    background-color: #f7f8fa;
+}
+
+.portlet-title .caption {
+    font-size: 16px;
+}
+
+.portlet-title .caption.font-green {
+    color: #1890ff;
+}
+
+/* 表单样式优化 */
+.tpl-amazeui-form {
+    padding: 20px;
+}
+
+.am-form-group {
+    margin-bottom: 20px;
+}
+
+.am-form-label {
+    font-weight: 500;
+    color: #4e5969;
+    text-align: right;
+    padding-top: 8px;
+}
+
+.am-u-sm-9 input {
+    width: 100%;
+    height: 38px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.am-u-sm-9 input:focus {
+    border-color: #1890ff;
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.1);
+}
+
+.am-u-sm-9 input::placeholder {
+    color: #999;
+}
+
+/* 按钮样式优化 */
+.am-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.am-btn-primary {
+    color: #fff;
+    background-color: #1890ff;
+    border-color: #1890ff;
+}
+
+.am-btn-primary:hover,
+.am-btn-primary:focus {
+    background-color: #096dd9;
+    border-color: #096dd9;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+}
+
+/* 侧边栏样式优化 */
+/* 假设侧边栏有类似这样的类名 */
+.admin-sidebar {
+    width: 220px;
+    background-color: #1f2d3d;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.admin-sidebar li a {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 12px 20px;
+    display: block;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.admin-sidebar li a:hover,
+.admin-sidebar li a.active {
+    background-color: #1890ff;
+    color: #fff;
+}
+
+/* 头部样式优化 */
+/* 假设页头有类似这样的类名 */
+.admin-header {
+    height: 60px;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e6eb;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .tpl-page-container {
+        flex-direction: column;
+    }
+    
+    .admin-sidebar {
+        width: 100%;
+        height: auto;
+    }
+    
+    .am-form-label {
+        text-align: left;
+        margin-bottom: 5px;
+    }
+}
+
+/* 动画与交互效果 */
+* {
+    transition: all 0.25s ease-in-out;
+}
+
+/* 提示信息样式 */
+.note-info {
+    position: relative;
+    padding-left: 15px;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #999;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #333;
+}
+
+/* 底部样式 */
+/* 假设页脚有类似这样的类名 */
+.admin-footer {
+    text-align: center;
+    padding: 20px;
+    color: #999;
+    font-size: 13px;
+}

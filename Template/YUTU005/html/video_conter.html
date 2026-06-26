@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms:$ListName}-{ytcms:$Name}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms:$ListName},{ytcms:$Name}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/style.css" />
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/new.css" />
+	</head>
+	<body>
+		<div class="page unselect">
+			<div class="ts-wrap">
+				<div class="Utop">
+					{ytcms-include:Header}
+				</div>
+				{ytcms-DCAd}
+				<p style="margin:5px 0;"><a href="{ytcms-DCAd:Url}" target="_blank"><img src="{ytcms-DCAd:Pic}" style="width:{ytcms-DCAd:Width};height:{ytcms-DCAd:Height};"></a></p>
+				{/ytcms-DCAd}
+			</div>
+			<div class="wrapper">
+				<div class="ts-wrap">
+					<div class="UStop">
+						<h5>{ytcms:$Name}</h5>
+					</div>
+					<div class="player">
+						{ytcms:$Play}
+					</div>
+				</div>
+			</div>
+			<div class="wrapper">
+				<div class="ts-wrap">
+					<div class="custom-container">
+						<p class="one">移动屏蔽严重，请使用联通电信进行观影</p>
+						<p class="two">视频无法播放请刷新页面,晚高峰时可能有点卡,请多等待几秒或刷新几次</p>
+						<p class="three">手机端建议全屏观看, 避免广告遮挡</p>
+					</div>
+				</div>
+				<style>
+					@keyframes rainbow {
+					    0% { color: red; }
+					    14% { color: orange; }
+					    28% { color: yellow; }
+					    42% { color: green; }
+					    57% { color: blue; }
+					    71% { color: indigo; }
+					    85% { color: violet; }
+					    100% { color: red; }
+					}
+					
+					.custom-container {
+					    display: flex;
+					    flex-direction: column;
+					    align-items: center; /* 居中对齐 */
+					    justify-content: center; /* 垂直居中 */
+					    height: auto; /* 自适应内容 */
+					    margin: 0; /* 去掉默认边距 */
+					    padding: 10px; /* 可选：增加内边距 */
+					    background-color: #f0f0f0; /* 背景颜色 */
+					}
+					
+					.custom-container p {
+					    font-size: 18px; /* 调整字体大小 */
+					    text-align: center; /* 文本居中 */
+					    animation: rainbow 3s linear infinite; /* 添加七彩幻变动画 */
+					    margin: 5px 0; /* 调整段落间距 */
+					    padding: 15px; /* 增加内边距 */
+					    border-radius: 10px; /* 添加圆角 */
+					    border: 2px solid transparent; /* 初始透明边框 */
+					    background: linear-gradient(white, white), /* 背景渐变 */
+					                linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); /* 彩虹渐变 */
+					    background-clip: padding-box, border-box; /* 使背景渐变不覆盖边框 */
+					    border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1; /* 边框渐变 */
+					    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+					}
+				</style>
+				<div class="ts-wrap">
+					<div class="UStop">
+						<h5>猜你喜欢</h5>
+					</div>
+					<ul class="cate-section">
+						{ytcms-Video-Popular:Count=6}
+						<li class="article" style="width: 46%;">
+							<a href="{ytcms-Video-Popular:DUrl}">
+								<img src="{ytcms-Video-Popular:Pic}" alt="{ytcms-Video-Popular:Name}" />
+								<div id="radius">
+									<img src="{ytcms:$StylePath}/img/vod.png" alt="" />
+								</div>
+								<span class="statusIco zbz2" rowspan="2" style="font-size: 12px;">{ytcms-Video-Popular:Rand}人观看</span>
+							</a>
+							<h2 style="font-size: 14px;">{ytcms-Video-Popular:Name}</h2>
+						</li>
+						{/ytcms-Video-Popular}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="foot">
+			{ytcms-include:Footer}
+		</div>
+	</body>
+</html>
+<!-- <link rel="stylesheet" href="{ytcms:$StylePath}/css/app.css" />
+		</head>
+		<body>
+			{ytcms-include:Header}
+			<div class="max">
+				{ytcms-DCAd}
+				<p style="margin:5px 0;"><a href="{ytcms-DCAd:Url}" target="_blank"><img src="{ytcms-DCAd:Pic}" style="width:{ytcms-DCAd:Width};height:{ytcms-DCAd:Height};"></a></p>
+				{/ytcms-DCAd}
+				<div class="content">
+					<div class="vod-details-container">
+						<div class="card vod-info">
+							<div class="card-content">
+								<div class="vod-class">
+									<h1 id="titleH">{ytcms:$Name}</h1>
+								</div>
+							</div>
+						</div>
+						<div class="plaryer-wrapper">
+							<div width: 100%; height: 0px; max-width: 100%; padding-top: 56.25%;></div>
+							{ytcms:$Play}
+						</div>
+						<div class="share-bar nowrap">
+							牢记本站域名<span class="txt-w" style="margin: 0px 3px;">yutucms.com</span>
+						</div>
+						<div class="video_box">
+							<div class="title">
+								<h6>精品内容 - 为您推荐</h6>
+							</div>
+							<div class="video-box">
+								{ytcms-Video-Popular:Count=12}
+								<div class="video-item">
+									<div class="img-box">
+										<a href="{ytcms-Video-Popular:DUrl}">
+											<img src="{ytcms-Video-Popular:Pic}" class="nature" alt="{ytcms-Video-Popular:Name}" />
+										</a>
+									</div>
+									<div class="txt-ellipsis-2">
+										<a href="{ytcms-Video-Popular:DUrl}">{ytcms-Video-Popular:Name}</a>
+									</div>
+								</div>
+								{/ytcms-Video-Popular}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{ytcms-include:Footer}
+	</body>
+</html>
+<style>
+	.plaryer-wrapper{
+		height: 600px;
+	}
+	@media (max-width: 640px) {
+	   .plaryer-wrapper{
+	   	height: 180px;
+	   }
+	}
+</style> -->

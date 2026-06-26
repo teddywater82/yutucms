@@ -1,0 +1,86 @@
+.pagination-wrapper {
+	background-color: #fafafa;
+	display: flex;
+	justify-content: center;
+	width: 100%
+}
+
+.pagination-wrapper .pagination {
+	display: inline-flex;
+	height: 40px
+}
+
+.pagination-wrapper .pagination li {
+	color: #484848;
+	font-size: 14px;
+	line-height: 40px;
+	text-align: center;
+	width: 40px
+}
+
+.pagination-wrapper .pagination li:last-child {
+	width: 110px
+}
+
+.pagination-wrapper .pagination li.disabled {
+	color: #ddd
+}
+
+.pagination-wrapper .pagination li a,
+.pagination-wrapper .pagination li a:active,
+.pagination-wrapper .pagination li a:focus,
+.pagination-wrapper .pagination li a:hover {
+	background: transparent;
+	color: inherit;
+	text-shadow: none
+}
+
+.pagination-wrapper .pagination li.active {
+	border-radius: 50%;
+	color: #fff
+}
+
+@media screen and (max-width:738px) {
+	.pagination-wrapper {
+		overflow: auto
+	}
+
+	.pagination-wrapper .pagination {
+		display: inline-flex;
+		height: 30px
+	}
+
+	.pagination-wrapper .pagination li {
+		color: #484848;
+		font-size: 14px;
+		line-height: 30px;
+		text-align: center;
+		width: 30px
+	}
+
+	.pagination-wrapper .pagination li:last-child {
+		width: 110px
+	}
+
+	.pagination-wrapper .pagination li.disabled {
+		color: #ddd
+	}
+
+	.pagination-wrapper .pagination li a {
+		padding: 0 2px
+	}
+
+	.pagination-wrapper .pagination li a,
+	.pagination-wrapper .pagination li a:active,
+	.pagination-wrapper .pagination li a:focus,
+	.pagination-wrapper .pagination li a:hover {
+		background: transparent;
+		color: inherit;
+		text-shadow: none
+	}
+
+	.pagination-wrapper .pagination li.active {
+		border-radius: 50%;
+		color: #fff
+	}
+}

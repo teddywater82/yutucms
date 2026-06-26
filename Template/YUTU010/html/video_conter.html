@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms:$ListName}-{ytcms:$Name}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms:$ListName},{ytcms:$Name}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/style.css">
+		<link id="layuicss-laydate" rel="stylesheet" href="{ytcms:$StylePath}/css/laydate.css" media="all">
+		<link id="layuicss-layer" rel="stylesheet" href="{ytcms:$StylePath}/css/layer3.1.1.css" media="all">
+		<link id="layuicss-skincodecss" rel="stylesheet" href="{ytcms:$StylePath}/css/code.css" media="all">
+		<link href="{ytcms:$StylePath}/css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+		<style>
+			.soso button svg {
+				fill: #eb8787;
+			}
+
+			.nav a {
+				background-color: #eb8787;
+			}
+
+
+			.links a {
+				background: #ffe8e8;
+				color: #000000;
+			}
+
+			.links {
+				border: 1px solid #eb8787;
+			}
+
+			.title a {
+				background-color: #eb8787;
+			}
+
+			.title {
+				background-color: #eb8787;
+			}
+
+			.label1 a {
+				align-items: center;
+				background-color: #4260a4;
+				border-radius: 4px;
+				color: #fffbfb;
+				display: inline-flex;
+				font-size: 1.35rem;
+				height: 2em;
+				justify-content: center;
+				line-height: 1.5;
+				padding-left: .75em;
+				padding-right: .75em;
+				white-space: nowrap;
+				margin-bottom: 3px;
+				margin-right: 3px;
+			}
+
+			.label2 a {
+				align-items: center;
+				background-color: #fff;
+				border-radius: 4px;
+				color: #333;
+				display: inline-flex;
+				font-size: 0.75rem;
+				height: 2em;
+				justify-content: center;
+				line-height: 1.5;
+				padding-left: .75em;
+				padding-right: .75em;
+				white-space: nowrap;
+				margin-bottom: 3px;
+				margin-right: 3px;
+				border: 1px solid #eb8787;
+			}
+
+			@media screen and (max-width:750px) {
+
+				.header {
+					display: contents;
+				}
+
+				.logo {
+					font-size: 14px;
+					margin-top: 10px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			{ytcms-include:Header}
+			{ytcms-TAd}
+			<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}"
+						style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+			{/ytcms-TAd}
+			<div class="box">
+				<div class="title">
+					<h3>{ytcms:$Name}</h3>
+				</div>
+				<div class="vod-playbox">
+					{ytcms:$Play}
+				</div>
+			</div>
+			<div class="box">
+				<div class="title">
+					<h3>猜你喜欢</h3>
+				</div>
+				<div class="vods">
+					{ytcms-Video-Popular:Count=20}
+					<div class="vod">
+						<div class="vod-img">
+							<a href="{ytcms-Video-Popular:DUrl}" target="_blank">
+								<img class="lazy" data-original="{ytcms-Video-Popular:Pic}" src="{ytcms-Video-Popular:Pic}" />
+							</a>
+						</div>
+						<div class="vod-txt">
+							<a href="{ytcms-Video-Popular:DUrl}" target="_blank">{ytcms-Video-Popular:Name}</a>
+						</div>
+					</div>
+					{/ytcms-Video-Popular}
+				</div>
+			</div>
+			{ytcms-include:Footer}
+		</div>
+	</body>
+</html>
+<style>
+	.vod-playbox {
+		height: 600px;
+	}
+
+	@media (max-width: 640px) {
+		.vod-playbox {
+			height: 180px;
+		}
+	}
+</style>

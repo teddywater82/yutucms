@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms:$ListName}-{ytcms:$Name}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms:$ListName},{ytcms:$Name}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/pintuer.css" />
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/style.css" />
+	<body style="padding-bottom: 0 !important;">
+		{ytcms-include:Header}
+		<div class="container margin-top">
+			{ytcms-TAd}
+			<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}"
+						style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+			{/ytcms-TAd}
+			<div class="container margin-top">
+				<div class="bread bg-mix text-black margin-top">
+					<a href="/">首页</a> » <a href="{ytcms:$ListUrl}">{ytcms:$ListName}</a> » {ytcms:$Name}
+				</div>
+				<div class="line">
+					<div class="endpage" style="text-align: center;">
+							{ytcms:$Play}
+					</div>
+					<div class="xl12 margin-top">
+						<div class="panel border">
+							<div class="panel-head border-sub bg-white" id="type8">
+								<strong>推荐视频</strong>
+							</div>
+							<div class="line grid media-inline" id="block-post">
+								{ytcms-Video-Popular:Count=16}
+								<div class="xb3 xl6 xm4 xs6 ul">
+									<div class="item">
+										<div class="thumb">
+											<div class="thumb">
+												<a href="{ytcms-Video-Popular:DUrl}" target="_blank"><img class="lazy" src="{ytcms-Video-Popular:Pic}"
+														alt="{ytcms-Video-Popular:Name}" /></a>
+												<span class="qtag dvdtag"></span>
+											</div>
+										</div>
+										<div class="meta">
+											<div class="title">
+												<a href="{ytcms-Video-Popular:DUrl}" name="rdmonclick" rel="bookmark"
+													title="{ytcms-Video-Popular:Name}" target="_blank">{ytcms-Video-Popular:Name}</a>
+											</div>
+										</div>
+										<div class="data">
+											<div class="time">
+												{ytcms-Video-Popular:Rand}人观看
+											</div>
+										</div>
+									</div>
+								</div>
+								{/ytcms-Video-Popular}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{ytcms-include:Footer}
+	</body>
+</html>
+<style>
+	.endpage{
+		height: 600px;
+	}
+	@media (max-width: 640px) {
+	   .endpage{
+	   	height: 180px;
+	   }
+	}
+</style>

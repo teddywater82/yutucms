@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms:$ListName}-{ytcms:$Name}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms:$ListName},{ytcms:$Name}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/app.css" />
+		</head>
+		<body>
+			{ytcms-include:Header}
+			<div class="max">
+				{ytcms-DCAd}
+				<p style="margin:5px 0;"><a href="{ytcms-DCAd:Url}" target="_blank"><img src="{ytcms-DCAd:Pic}" style="width:{ytcms-DCAd:Width};height:{ytcms-DCAd:Height};"></a></p>
+				{/ytcms-DCAd}
+				<div class="content">
+					<div class="vod-details-container">
+						<div class="card vod-info">
+							<div class="card-content">
+								<div class="vod-class">
+									<h1 id="titleH">{ytcms:$Name}</h1>
+								</div>
+							</div>
+						</div>
+						<div class="plaryer-wrapper">
+							<div width: 100%; height: 0px; max-width: 100%; padding-top: 56.25%;></div>
+							{ytcms:$Play}
+						</div>
+						<div class="share-bar nowrap">
+							牢记本站域名<span class="txt-w" style="margin: 0px 3px;">yutucms.com</span>
+						</div>
+						<div class="video_box">
+							<div class="title">
+								<h6>精品内容 - 为您推荐</h6>
+							</div>
+							<div class="video-box">
+								{ytcms-Video-Popular:Count=12}
+								<div class="video-item">
+									<div class="img-box">
+										<a href="{ytcms-Video-Popular:DUrl}">
+											<img src="{ytcms-Video-Popular:Pic}" class="nature" alt="{ytcms-Video-Popular:Name}" />
+										</a>
+									</div>
+									<div class="txt-ellipsis-2">
+										<a href="{ytcms-Video-Popular:DUrl}">{ytcms-Video-Popular:Name}</a>
+									</div>
+								</div>
+								{/ytcms-Video-Popular}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{ytcms-include:Footer}
+	</body>
+</html>
+<style>
+	.plaryer-wrapper{
+		height: 600px;
+	}
+	@media (max-width: 640px) {
+	   .plaryer-wrapper{
+	   	height: 180px;
+	   }
+	}
+</style>

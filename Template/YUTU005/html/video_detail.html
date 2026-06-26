@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms:$ListName}-{ytcms:$Name}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms:$ListName},{ytcms:$Name}">
+		<meta name="description" content="{ytcms:$WebDescription},{ytcms:$ListName},{ytcms:$Name}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/style.css" />
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/new.css" />
+	</head>
+	<body>
+		<div class="page unselect">
+			<div class="ts-wrap">
+				<div class="Utop">
+					{ytcms-include:Header}
+				</div>
+				{ytcms-TAd}
+				<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}"
+							style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+				{/ytcms-TAd}
+			</div>
+			<div class="wrapper">
+				<div class="ts-wrap">
+					<div class="UStop">
+						<h5>{ytcms:$Name}</h5>
+					</div>
+					<div style="margin-left:10px;margin-right:10px;margin-top:5px;text-align:center;">
+						<img src="{ytcms:$Pic}" width="50%" alt="" />
+					</div>
+					<style>
+						.btn-submit {
+							width: 80%;
+							text-align: center;
+							padding: 10px;
+							transition: all .1s linear;
+							display: inline-block;
+							background: #03c8a8;
+							color: #fff;
+							border: none;
+							font-weight: 500;
+							cursor: pointer;
+							border-radius: 50px;
+							font-size: 40px;
+						}
+
+						.btn-submit:hover {
+							background: #322c2c;
+							color: #fff
+						}
+
+						.btn-submit:focus {
+							outline: 0
+						}
+
+						a {
+							border: none;
+							cursor: pointer
+						}
+
+						.article {
+							width: 46%;
+						}
+					</style>
+					<div style="margin-left:30px;margin-right:30px;margin-top:5px;text-align:center;">
+						<a href="{ytcms:$CUrl}" class="full-top btn-submit">立即播放</a>
+					</div>
+				</div>
+				<div class="ts-wrap">
+					<div class="UStop">
+						<h5>猜你喜欢</h5>
+					</div>
+					<ul class="cate-section">
+						{ytcms-Video-Popular:Count=6}
+						<li class="article" style="width: 46%;">
+							<a href="{ytcms-Video-Popular:DUrl}">
+								<img src="{ytcms-Video-Popular:Pic}" alt="{ytcms-Video-Popular:Name}" />
+								<div id="radius">
+									<img src="{ytcms:$StylePath}/img/vod.png" alt="" />
+								</div>
+								<span class="statusIco zbz2" rowspan="2" style="font-size: 12px;">{ytcms-Video-Popular:Rand}人观看</span>
+							</a>
+							<h2 style="font-size: 14px;">{ytcms-Video-Popular:Name}</h2>
+						</li>
+						{/ytcms-Video-Popular}
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		<div id="foot">
+			{ytcms-include:Footer}
+		</div>
+	</body>
+</html>

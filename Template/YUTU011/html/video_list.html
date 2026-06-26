@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{ytcms:$WebTitle}-{ytcms-Video-List:Title}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms-Video-List:Title}">
+		<meta name="description" content="{ytcms:$WebDescription},{ytcms-Video-List:Title}">
+		<link id="layuicss-laydate" rel="stylesheet" href="{ytcms:$StylePath}/css/autoptimize.css" media="all">
+		<link id="layuicss-layer" rel="stylesheet" href="{ytcms:$StylePath}/css/iconfont.css" media="all">
+		<script src='{ytcms:$StylePath}/js/jquery.min.js'></script>
+		<script src="{ytcms:$StylePath}/js/autoptimize.js" type="application/javascript"></script>
+		<style>
+			@media (min-width: 768px) {
+				.topo-menu ul a {
+					display: block;
+					padding: 0 10px;
+					line-height: 42px;
+					color: #fff;
+					font-size: 18px;
+					font-weight: 500;
+					width: 122.01px;
+					height: 42px;
+					border-radius: 10px;
+					text-align: center;
+					font-size: 1rem;
+				}
+
+				.logo-nome {
+					color: #fff;
+					background-color: #161616;
+					font-size: 26px;
+					font-weight: 600;
+					height: 40px;
+					display: inline-block;
+					padding: 10px 0px 0;
+				}
+			}
+
+			.paginacao li a.dqy {
+				color: #FF0000;
+			}
+		</style>
+	</head>
+	<body class="archive category category-porn category-58">
+		{ytcms-include:Header}
+		<div class="meio">
+			<div class="container">
+				{ytcms-TAd}
+				<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}"
+							style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+				{/ytcms-TAd}
+				<h3><i class="iconfont icon-all"></i>{ytcms-Index-Type:1}</h3>
+				<div class="videos">
+					{ytcms-Video-List:Count=20}
+					<div class="video">
+						<div class="video-thumb">
+							<a href="{ytcms-Video-List:DUrl}" class="thumb">
+								<img width="352" height="198" src="{ytcms-Video-List:Pic}" data-src="{ytcms-Video-List:Pic}"
+									class=" ls-is-cached lazyloaded">
+								<span class="video-play"></span>
+								<span class="video-preview"></span>
+								<span class="video-slider"></span>
+							</a>
+						</div>
+						<a href="{ytcms-Video-List:DUrl}">
+							<span class="video-titulo">
+								{ytcms-Video-List:Name}
+							</span>
+						</a>
+						<div class="clearfix"></div>
+					</div>
+				{/ytcms-Video-List}
+				</div>
+				<div class="pagination" id="wr-page">
+					<script src="{ytcms:$StylePath}/js/jQuery.js"></script>
+					<script src="{ytcms:$StylePath}/js/page.js?t=1"></script>
+					<script type="text/javascript">
+						$("#wr-page").wrpage({
+							pagesize: '{ytcms-Video-List:totalPage}',
+							wr_current: '{ytcms-Video-List:currentPage}',
+							baseUrl: '{ytcms-Video-List:baseUrl}',
+						})
+					</script>
+				</div>
+			</div>
+		</div>
+		{ytcms-include:Footer}
+	</body>
+</html>
+<style type="text/css">
+	.pagination{
+		text-align: center;
+	}
+	.pagination a {
+		background-color: #f1f1f1;
+		color: #777;
+		display: inline-block;
+		margin-right: 2px;
+		padding: 0 12px
+	}
+	.pagination a:hover,
+	.pagination strong {
+		background-color: #ff5757;
+		color: #fff;
+		text-shadow: 1px 1px 1px #ff5757
+	}
+	
+	.pagination strong {
+		display: inline-block;
+		font-weight: 400;
+		height: 32px;
+		line-height: 32px;
+		margin-right: 2px;
+		padding: 0 12px
+	}
+	
+	.pagination a,
+	.pagination strong {
+		border-radius: 3px
+	}
+	
+	@media (min-width:769px) {
+		.pagination a.hidden-xs {
+			display: inline-block
+		}
+	
+		.pagination a.visible-xs {
+			display: none
+		}
+	}
+	
+	@media (max-width:769px) {
+		.pagination a.hidden-xs {
+			display: none
+		}
+	
+		.pagination a.visible-xs {
+			display: inline-block
+		}
+	}
+	
+	@media (max-width:328px) {
+		.pagination a {
+			background-color: #f1f1f1;
+			color: #777;
+			display: inline-block;
+			margin-right: 2px;
+			padding: 0 10px
+		}
+	}
+</style>

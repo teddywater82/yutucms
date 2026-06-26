@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms:$ListName}-{ytcms:$Name}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms:$ListName},{ytcms:$Name}">
+		<meta name="description" content="{ytcms:$WebDescription},{ytcms:$ListName},{ytcms:$Name}">
+		<link id="layuicss-laydate" rel="stylesheet" href="{ytcms:$StylePath}/css/bulma.min.css" media="all">
+		<link id="layuicss-layer" rel="stylesheet" href="{ytcms:$StylePath}/css/sour.css" media="all">
+		<script src='{ytcms:$StylePath}/js/jquery.min.js'></script>
+	</head>
+	<body>
+		{ytcms-include:Header}
+		<div class="vod-box container">
+			{ytcms-TAd}
+			<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}"
+						style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+			{/ytcms-TAd}
+			<header class="wrap">
+				<h1>资源名称：{ytcms:$Name}</h1>
+			</header>
+			<div class="bgcolor">
+				<style>
+					.group-box2 {
+						padding: 5px 1%;
+						margin: 15px 0 0 0;
+						box-sizing: border-box;
+						-moz-box-sizing: border-box;
+						-webkit-box-sizing: border-box;
+						border-radius: 4px;
+					}
+					.button22 {
+						background-color: #b96b83;
+						border: none;
+						color: #ffffff;
+						padding: 8px 20px;
+						text-align: center;
+						text-decoration: none;
+						/*display: inline-block;*/
+						font-size: 16px;
+						margin: 4px 2px;
+						-webkit-transition-duration: 0.4s;
+						transition-duration: 0.4s;
+						cursor: pointer;
+					}
+				</style>
+				<div style="text-align: center;  ">
+					<a target="_blank" href="{ytcms:$CUrl}">
+						<img src="{ytcms:$Pic}"
+							title="{ytcms:$Name}" width="60%" height="60%" style="margin: 0 auto;"
+							alt="{ytcms:$Name}"></a>
+				</div> <br>
+				<br>
+
+				<div class="group-box2" style="background: rgba(205, 202, 218, 0.4);">
+					<a class="button22" href="{ytcms:$CUrl}" title=" ">在线播放</a>
+				</div>
+				<div class="vod-box container">
+					<p class="type-title has-text-weight-bold">
+						<span>猜你喜欢</span>
+					</p>
+					<div class="columns is-mobile is-multiline is-variable is-1 ">
+						{ytcms-Video-Popular:Count=8}
+						﻿ <div class="column is-half-mobile is-one-quarter-desktop vod-item-box is-half-touch">
+							<a target="_blank" href="{ytcms-Video-Popular:DUrl}">
+								<figure class="image is-16by9">
+									<img src="{ytcms-Video-Popular:Pic}" onerror="{ytcms-Video-Popular:Pic}';"
+										alt="{ytcms-Video-Popular:Name}" class="lazy"
+										data-original="{ytcms-Video-Popular:Pic}">
+								</figure>
+								<p class="vod-name is-size-7 has-text-dark has-text-weight-bold">{ytcms-Video-Popular:Name}</p>
+								<p class="vod-class has-text-grey">观看：{ytcms-Video-Popular:Rand}</p>
+							</a>
+						</div>
+						{/ytcms-Video-Popular}
+					</div>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+		</div>
+		{ytcms-include:Footer}
+	</body>
+</html>

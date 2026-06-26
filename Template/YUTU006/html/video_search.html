@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms-Search-List:Title}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms-Search-List:Title}">
+		<meta name="description" content="{ytcms:$WebDescription},{ytcms-Search-List:Title}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/pintuer.css" />
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/style.css" />
+	<body style="padding-bottom: 0 !important;">
+		{ytcms-include:Header}
+		<div class="container margin-top">
+		{ytcms-TAd}
+		<p style="margin:10px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};margin-bottom:2px;" src="{ytcms-TAd:Pic}"></a></p>
+		{/ytcms-TAd}
+			<ul class="bread bg-mix text-black margin-top" style="font-size:15px">
+				搜索<strong style="color: #ff0000;">{ytcms-Search-List:Title}</strong>的结果
+			</ul>
+			<div class="line">
+				<div class="xl12">
+					<div class="xl12">
+						<div class="line-middle grid media-inline" id="block-post">
+							{ytcms-Search-List:Count=16}
+							<div class="xb3 xl6 xm4 xs6 ul">
+								<div class="item">
+									<div class="thumb">
+										<a href="{ytcms-Search-List:DUrl}"><img class="lazy" src="{ytcms-Search-List:Pic}" alt="{ytcms-Search-List:Name}" /></a>
+										<span class="qtag dvdtag"></span>
+									</div>
+									<div class="meta">
+										<div class="title">
+											<a href="{ytcms-Search-List:DUrl}">{ytcms-Search-List:Name}</a>
+										</div>
+									</div>
+									<div class="data">
+										<div class="time">
+											{ytcms-Search-List:Rand}人观看
+										</div>
+									</div>
+								</div>
+							</div>
+							{/ytcms-Search-List}
+						</div>
+						<div class="pagination" id="wr-page">
+							<script src="{ytcms:$StylePath}/js/jQuery.js"></script>
+							<script src="{ytcms:$StylePath}/js/page.js?t=1"></script>
+							<script type="text/javascript">
+								$("#wr-page").wrpage({
+									pagesize: '{ytcms-Search-List:totalPage}',
+									wr_current: '{ytcms-Search-List:currentPage}',
+									baseUrl: '{ytcms-Search-List:baseUrl}',
+								})
+							</script>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{ytcms-include:Footer}
+	</body>
+</html>
+<style>
+	.pagination {
+		height: 32px;
+		line-height: 32px;
+		margin-bottom: 20px;
+		margin-top: 20px;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+	}
+
+	.pagination a {
+		background-color: #f1f1f1;
+		color: #777;
+		display: inline-block;
+		margin-right: 2px;
+		padding: 0 12px
+	}
+
+	.pagination a:hover,
+	.pagination strong {
+		background-color: #ff5757;
+		color: #fff;
+		text-shadow: 1px 1px 1px #ff5757
+	}
+
+	.pagination strong {
+		display: inline-block;
+		font-weight: 400;
+		height: 32px;
+		line-height: 32px;
+		margin-right: 2px;
+		padding: 0 12px
+	}
+
+	.pagination a,
+	.pagination strong {
+		border-radius: 3px
+	}
+
+	@media (min-width:769px) {
+		.pagination a.hidden-xs {
+			display: inline-block
+		}
+
+		.pagination a.visible-xs {
+			display: none
+		}
+	}
+
+	@media (max-width:769px) {
+		.pagination a.hidden-xs {
+			display: none
+		}
+
+		.pagination a.visible-xs {
+			display: inline-block
+		}
+	}
+
+	@media (max-width:328px) {
+		.pagination a {
+			background-color: #f1f1f1;
+			color: #777;
+			display: inline-block;
+			margin-right: 2px;
+			padding: 0 10px
+		}
+	}
+</style>

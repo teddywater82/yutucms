@@ -1,0 +1,70 @@
+<header class="header">
+	<div class="header-box container">
+		<div class="header-left has-text-weight-bold">
+			<a href="/">
+				<p class="is-size-5 has-text-danger">YUTUCMS</p>
+				<p class="is-size-7 has-text-grey">最新地址：YUTUCMS.COM</p>
+			</a>
+		</div>
+		<div class="is-hidden-mobile is-hidden-touch">
+			<form id="search" name="search">
+				<div class="field has-addons is-pc-search-box">
+					<div class="control is-expanded">
+						<input id="txt" type="text" name="search" class="input is-small" value="" placeholder="输入搜索关键字">
+					</div>
+					<div class="control">
+						<button class="button has-text-grey-light has-text-weight-bold is-small" type="submit"
+							id="videoTitle">搜&nbsp;索</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</header>
+<div class="type-box container" style="margin-top: 10px;">
+	<div class="columns is-mobile is-multiline is-variable is-1">
+		<div class="column is-half-mobile type-item-box">
+			{ytcms:Type=1}
+			<a href="{ytcms:Url}" title="视频一区">
+				<div class="button is-small is-danger has-text-weight-bold type-item">
+					<span class="is-size-7">视频一区</span>
+					<span><span class="iconfont icon-arrow-right"></span></span>
+				</div>
+			</a>
+			{/ytcms:Type}
+		</div>
+
+		<div class="column is-half-mobile type-item-box">
+			{ytcms:Type=7}
+			<a href="{ytcms:Url}" title="视频二区">
+				<div class="button is-small is-danger has-text-weight-bold type-item">
+					<span class="is-size-7">视频二区</span>
+					<span><span class="iconfont icon-arrow-right"></span></span>
+				</div>
+			</a>
+			{/ytcms:Type}
+		</div>
+
+		<div class="column is-half-mobile type-item-box">
+				{ytcms:Type=13}
+			<a href="{ytcms:Url}" title="视频三区">
+				<div class="button is-small is-danger has-text-weight-bold type-item">
+					<span class="is-size-7">视频三区</span>
+					<span><span class="iconfont icon-arrow-right"></span></span>
+				</div>
+			</a>
+			{/ytcms:Type}
+		</div>
+
+		<div class="column is-half-mobile type-item-box">
+			{ytcms:Type=18}
+			<a href="{ytcms:Url}" title="视频四区">
+				<div class="button is-small is-danger has-text-weight-bold type-item">
+					<span class="is-size-7">视频四区</span>
+					<span><span class="iconfont icon-arrow-right"></span></span>
+				</div>
+			</a>
+			{/ytcms:Type}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{ytcms:$WebTitle}-{ytcms-Video-List:Title}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms-Video-List:Title}">
+		<meta name="description" content="{ytcms:$WebDescription},{ytcms-Video-List:Title}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/style.css" />
+	</head>
+	<body>
+		{ytcms-include:Header}
+		<div class="wrap">
+		{ytcms-TAd}
+		<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}" style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+		{/ytcms-TAd}
+		</div>
+		<div class="wrap">
+			<div class="mod channel-list">
+				<div class="title">
+					<h3>{ytcms-Video-List:Title}</h3>
+				</div>
+				<div class="row col5 clearfix">
+					{ytcms-Video-List:Count=40}
+					<dl>
+						<dt><a href="{ytcms-Video-List:DUrl}" title="{ytcms-Video-List:Name}"
+								target="_blank"><img class="nature" src="{ytcms-Video-List:Pic}"
+									alt="{ytcms-Video-List:Name}" /><i>{ytcms-Video-List:Rand}</i></a></dt>
+						<dd><a href="{ytcms-Video-List:DUrl}" title="{ytcms-Video-List:Name}"
+								target="_blank">
+								<h3>{ytcms-Video-List:Name}</h3>
+							</a></dd>
+					</dl>
+					{/ytcms-Video-List}
+				</div>
+			</div>
+			<div class="pagination" id="wr-page">
+				<script src="{ytcms:$StylePath}/js/jQuery.js"></script>
+				<script src="{ytcms:$StylePath}/js/page.js?t=1"></script>
+				<script type="text/javascript">
+					$("#wr-page").wrpage({
+						pagesize: '{ytcms-Video-List:totalPage}',
+						wr_current: '{ytcms-Video-List:currentPage}',
+						baseUrl: '{ytcms-Video-List:baseUrl}',
+					})
+				</script>
+			</div>
+		</div>
+		<!-- 页尾 开始 -->
+		{ytcms-include:Footer}
+		<!-- 页尾 结束 -->
+
+	</body>
+</html>

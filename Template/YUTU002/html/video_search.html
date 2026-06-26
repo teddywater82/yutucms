@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="applicable-device" content="pc,mobile">
+<title>{ytcms:$WebTitle}-{ytcms-Search-List:Title}</title>
+<meta name="author" content="{ytcms:$WebTitle}">
+<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms-Search-List:Title}">
+<meta name="description" content="{ytcms:$WebDescription},{ytcms-Search-List:Title}">
+<link href="{ytcms:$StylePath}/css/style.css" rel="stylesheet">
+</head>
+<body>﻿
+<!-- 页头 开始 -->
+{ytcms-include:Header}
+<!-- 页头 结束 -->
+<div class="wrap">
+<div class="con">
+<div class="row clearfix top20">
+{ytcms-TAd}
+<p style="margin:10px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};margin-bottom:2px;" src="{ytcms-TAd:Pic}"></a></p>
+{/ytcms-TAd}
+<div class="row-l row-l-l">
+<div class="stit itit clearfix"><span class="name">{ytcms-Search-List:Title}</span></div>
+<ul class="ul clearfix">
+{ytcms-Search-List:Count=36}
+<li><a href="{ytcms-Search-List:DUrl}" title="{ytcms-Search-List:Name}" class="link"><div class="img"><img src="{ytcms-Search-List:Pic}" alt="{ytcms-Search-List:Name}"><span class="bgb"><i class="bgbbg"></i><p class="name">{ytcms-Search-List:Name}</p></span></div></a></li>
+{/ytcms-Search-List}
+</ul>
+</div>
+<div class="pagination" id="wr-page">
+<script src="{ytcms:$StylePath}/js/jQuery.js"></script>
+<script src="{ytcms:$StylePath}/js/page.js?t=1"></script>
+<script type="text/javascript">
+$("#wr-page").wrpage({
+pagesize: '{ytcms-Search-List:totalPage}',
+wr_current: '{ytcms-Search-List:currentPage}',
+baseUrl: '{ytcms-Search-List:baseUrl}',
+})
+</script>
+</div>
+</div>
+</div>
+</div>
+<!-- 页尾 开始 -->
+{ytcms-include:Footer}
+<!-- 页尾 结束 -->
+<script src="{ytcms:$StylePath}/js/lazyload.min.js"></script>
+<script type="text/javascript" src="{ytcms:$StylePath}/js/tpl.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta name="applicable-device" content="pc,mobile">
+		<title>{ytcms:$WebTitle}-{ytcms-Video-List:Title}</title>
+		<meta name="author" content="{ytcms:$WebTitle}">
+		<meta name="keywords" content="{ytcms:$WebKeywords},{ytcms-Video-List:Title}">
+		<meta name="description" content="{ytcms:$WebDescription},{ytcms-Video-List:Title}">
+		<link href="{ytcms:$StylePath}/css/app.css" rel="stylesheet">
+		<link href="{ytcms:$StylePath}/css/theme.css" rel="stylesheet">
+		<link href="{ytcms:$StylePath}/css/dialog.css" rel="stylesheet">
+		<link href="{ytcms:$StylePath}/css/share-url.css" rel="stylesheet">
+	</head>
+	<body>
+		<!-- 页头 开始 -->
+		{ytcms-include:Header}
+		<!-- 页头 结束 -->
+		<div class="main-content">
+			<main class="container" id="main-container">
+				<div class="index-bg shipin-bg">
+				</div>
+				<div class="index-content  shipin-content">
+					<div class="row header-row">
+						<link href="{ytcms:$StylePath}/css/header-index-mobile.css" rel="stylesheet">
+						<div class="header-index-mobile">
+							<div class="header-row">
+								<div class="left">
+									<a class="item" href="/">
+										<img class="left-img mobile_show" alt="left-img" srcset=""
+											src="{ytcms:$StylePath}/images/arrow-left-1.png" />
+										<img class="left-img pc_show" alt="left-img" srcset=""
+											src="{ytcms:$StylePath}/images/arrow-left.png" />
+									</a>
+									<div class="item">
+										<span>{ytcms-Video-List:Title}</span>
+									</div>
+								</div>
+								<div class="right">
+		
+								</div>
+							</div>
+						</div>
+						<script src="{ytcms:$StylePath}/js/header-index-mobile.js"></script>
+					</div>
+					<div class="row list-row">
+						<link href="{ytcms:$StylePath}/css/video-list.css" rel="stylesheet">
+						<ul class="video-list-content">
+							{ytcms-Video-List:Count=20}
+							<li class="content-item ">
+								<a class="video-pic loading" href="{ytcms-Video-List:DUrl}"
+									title="{ytcms-Video-List:Name}" target="_blank" style="background-image:url({ytcms-Video-List:Pic})">
+									<img class="content-img lazy" data-original="{ytcms-Video-List:Pic}" data-prefix=""
+										data-aes="true" data-loading="{ytcms-Video-List:Pic}">
+									<span class="player"><img src="{ytcms:$StylePath}/images/play.png" /></span>
+									<span class="note text-bg-r">
+										{ytcms-Index:Rand}</span>
+								</a>
+								<div class="title text-ellipsis">
+									<a href="{ytcms-Video-List:DUrl}" title="{ytcms-Video-List:Name}"
+										target="_blank">
+										{ytcms-Video-List:Name} </a>
+								</div>
+							</li>
+							{/ytcms-Video-List}
+						</ul>
+					</div>
+				</div>
+		</div>
+		<div class="pagination" id="wr-page">
+			<script src="{ytcms:$StylePath}/js/jQuery.js"></script>
+			<script src="{ytcms:$StylePath}/js/page.js?t=1"></script>
+			<script type="text/javascript">
+				$("#wr-page").wrpage({
+					pagesize: '{ytcms-Video-List:totalPage}',
+					wr_current: '{ytcms-Video-List:currentPage}',
+					baseUrl: '{ytcms-Video-List:baseUrl}',
+				})
+			</script>
+		</div>
+		<!-- 页尾 开始 -->
+		{ytcms-include:Footer}
+		<!-- 页尾 结束 -->
+		<script src="{ytcms:$StylePath}/js/lazyload.min.js"></script>
+		<script src="{ytcms:$StylePath}/js/tpl.js"></script>
+		<script src="{ytcms:$StylePath}/js/language.js"></script>
+	</body>
+</html>

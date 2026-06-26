@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta data-n-head="1" charset="utf-8">
+		<meta data-n-head="1" data-hid="description" name="description" content="">
+		<meta data-n-head="1" name="format-detection" content="telephone=no">
+		<meta data-n-head="1" name="viewport" content="width=device-width, initial-scale=1">
+		<meta data-n-head="1" name="theme-color" content="#000000">
+		<title>{ytcms:$WebTitle}</title>
+		<meta name="author" content="{ytcms:$WebKeywords}">
+		<meta name="keywords" content="{ytcms:$WebKeywords}">
+		<meta name="description" content="{ytcms:$WebDescription}">
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/app.css" />
+		<link rel="stylesheet" href="{ytcms:$StylePath}/css/all.css" />
+	<body style="padding-bottom: 0px !important;">
+		{ytcms-include:Header}
+		<main id="main">
+			<div class="container-fluid mb-3 p-0">
+				{ytcms-TAd}
+				<p style="margin:5px 0;"><a href="{ytcms-TAd:Url}" target="_blank"><img src="{ytcms-TAd:Pic}"
+							style="width:{ytcms-TAd:Width};height:{ytcms-TAd:Height};"></a></p>
+				{/ytcms-TAd}
+			</div>
+			<div class="container-fluid px-0">
+				<div class="row my-2">
+					<h5 class="container-title col-60">精品推荐</h5>
+				</div>
+				<div class="row">
+					{ytcms-Index:Type=1,Count=12}
+					<div class="colVideoList">
+						<div class="video-elem">
+							<a target="_blank" class="display d-block" href="{ytcms-Index:DUrl}">
+								<div class="scale"></div>
+								<div class="img" style="background-image: url('{ytcms-Index:Pic}')"></div>
+								<small class="layer">{ytcms-Index:Rand}</small>
+							</a>
+							<a target="_blank" class="title text-sub-title mt-2 mb-3"
+								href="{ytcms-Index:DUrl}">{ytcms-Index:Name}</a>
+						</div>
+					</div>
+					{/ytcms-Index}
+				</div>
+			</div>
+			<div class="container-fluid px-0">
+				<div class="row my-2">
+					<h5 class="container-title col-60">国产精品</h5>
+				</div>
+				<div class="row">
+					{ytcms-Index:Type=2,Count=12}
+					<div class="colVideoList">
+						<div class="video-elem">
+							<a target="_blank" class="display d-block" href="{ytcms-Index:DUrl}">
+								<div class="scale"></div>
+								<div class="img" style="background-image: url('{ytcms-Index:Pic}')"></div>
+								<small class="layer">{ytcms-Index:Rand}</small>
+							</a>
+							<a target="_blank" class="title text-sub-title mt-2 mb-3"
+								href="{ytcms-Index:DUrl}">{ytcms-Index:Name}</a>
+						</div>
+					</div>
+					{/ytcms-Index}
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row my-2">
+					<h5 class="container-title col-60">友情链接</h5>
+				</div>
+				<div class="row">
+					<div class="col-60">
+						{ytcms-IeUrl}
+						<a class="text-sub-title mx-2 text-small" href="{ytcms-IeUrl:Url}" target="_blank">{ytcms-IeUrl:Name}</a>
+						{/ytcms-IeUrl}
+					</div>
+				</div>
+			</div>
+		</main>
+		{ytcms-include:Footer}
+	</body>
+</html>

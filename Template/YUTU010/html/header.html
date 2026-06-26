@@ -1,0 +1,186 @@
+<header class="header">
+	<h1>
+		<a class="logo" href="/">
+			<img src="{ytcms:$WebLogo}" alt="logo" style="margin:-13px 0;height:48px;">
+		</a>
+	</h1>
+	<div class="logo" style="color: #eb8787; font-weight: bold;">
+		收藏域名：{ytcms:$WEBUrl}</div>
+	<form>
+		<div class="soso">
+			<input type="text" name="search" class="keywd" placeholder="请输入关键词搜索" id="searchInput">
+			<button type="submit" title="搜索关键词"><svg t="1655274004524" class="icon" viewBox="0 0 1024 1024" version="1.1"
+					xmlns="http://www.w3.org/2000/svg" p-id="3068">
+					<path
+						d="M1008.160651 931.256445l-177.567435-177.567436A464.412483 464.412483 0 1 0 639.131615 897.076798a57.521845 57.521845 0 1 0-43.071914-106.707191 350.758209 350.758209 0 1 1 118.100408-78.988332 10.976391 10.976391 0 0 0-0.83365 1.042063 6.530258 6.530258 0 0 1-0.83365 0.625237 54.465129 54.465129 0 0 0-5.696608 69.887653 58.286024 58.286024 0 0 0 7.850203 9.864857c1.042062 0.972592 2.223066 1.736771 3.3346 2.639892l212.719674 212.719674a54.604071 54.604071 0 0 0 76.904207 0 54.604071 54.604071 0 0 0 0.555766-76.904206z"
+						p-id="3069"></path>
+				</svg></button>
+		</div>
+	</form>
+</header>
+<div class="box">
+	<style>
+		.nav-div3 {
+			border-bottom: 1px #eb8787 solid;
+			width: 100%;
+			margin-bottom: 1rem;
+		}
+
+		.nav-div1 {
+			position: relative;
+		}
+
+		.nav-div4 {
+			background-color: #eb8787;
+			color: #fff;
+			float: left;
+			width: 10%;
+			font-size: .8rem;
+			line-height: 1.5rem;
+			border-radius: 5px 5px 0 0;
+			text-align: center;
+		}
+
+		.nav-div4 a {
+			font-size: 1.2rem;
+			line-height: 1.5rem;
+			font-weight: bold;
+			color: white;
+		}
+
+		.nav-div4-ul {
+			overflow: hidden;
+			font-size: .8rem;
+			line-height: 1.5rem;
+			font-weight: bold;
+			color: white;
+		}
+
+		.nav-div4-ul li {
+			width: 12%;
+			display: inline-block;
+			text-align: center;
+		}
+
+		.nav-div4-ul li a {
+			font-size: 1.2rem;
+			line-height: 1.5rem;
+			color: #eb8787;
+			font-weight: bold;
+		}
+
+		@media screen and (max-width:768px) {
+			.nav-div4 {
+				width: unset;
+			}
+
+			.nav-div4 a {
+				font-size: 0.8rem;
+			}
+
+			.nav-div4-ul li a {
+				font-size: 0.8rem;
+			}
+
+			.nav-div1 li {
+				width: 23.9%;
+			}
+		}
+	</style>
+	<div class="nav-div1">
+		<div class="nav-div2">
+			<div class="nav-div3">
+				<div class="nav-div4">
+					<a href="/">网站首页</a>
+				</div>
+				<ul class="nav-div4-ul">
+						{ytcms:Type=1,2,3,4}
+					<li>
+						<a href="{ytcms:Url}" target="_blank">{ytcms:Name}</a>
+					</li>
+					{/ytcms:Type}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="nav-div1">
+		<div class="nav-div2">
+			<div class="nav-div3">
+				<div class="nav-div4">
+					视频一区
+				</div>
+				<ul class="nav-div4-ul">
+						{ytcms:Type=5,6,7,8}
+					<li>
+						<a href="{ytcms:Url}" target="_blank">{ytcms:Name}</a>
+					</li>
+					{/ytcms:Type}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="nav-div1">
+		<div class="nav-div2">
+			<div class="nav-div3">
+				<div class="nav-div4">
+					视频二区
+				</div>
+				<ul class="nav-div4-ul">
+						{ytcms:Type=9,10,11,12}
+					<li>
+						<a href="{ytcms:Url}" target="_blank">{ytcms:Name}</a>
+					</li>
+					{/ytcms:Type}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="nav-div1">
+		<div class="nav-div2">
+			<div class="nav-div3">
+				<div class="nav-div4">
+					视频三区
+				</div>
+				<ul class="nav-div4-ul">
+						{ytcms:Type=13,14,15,16}
+					<li>
+						<a href="{ytcms:Url}" target="_blank">{ytcms:Name}</a>
+					</li>
+					{/ytcms:Type}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="nav-div1">
+		<div class="nav-div2">
+			<div class="nav-div3">
+				<div class="nav-div4">
+					视频四区
+				</div>
+				<ul class="nav-div4-ul">
+						{ytcms:Type=17,18,19,20}
+					<li>
+						<a href="{ytcms:Url}" target="_blank">{ytcms:Name}</a>
+					</li>
+					{/ytcms:Type}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="nav-div1">
+		<div class="nav-div2">
+			<div class="nav-div3">
+				<div class="nav-div4">
+					视频五区
+				</div>
+				<ul class="nav-div4-ul">
+						{ytcms:Type=21,22,23,24}
+					<li>
+						<a href="{ytcms:Url}" target="_blank">{ytcms:Name}</a>
+					</li>
+					{/ytcms:Type}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

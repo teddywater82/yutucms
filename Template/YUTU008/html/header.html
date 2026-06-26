@@ -1,0 +1,107 @@
+<div class="appel">
+	<div class="gongago">
+		<p class="gongago_p" style="padding: 10px 0;text-align: center;">
+			<b>
+				<font id="blink" style="color: rgb(0, 243, 255);">请保存永久网址：h{ytcms:$WEBUrl}</font>
+			</b><a class="fuzhi" href="javascript:void(0);" onclick="copyLink()">复制保存</a>
+		</p>
+	</div>
+	<textarea id="copy">{ytcms:$WebTitle}【官方网址】{ytcms:$WEBUrl}</textarea>
+	<script type="text/javascript">
+		function copyLink() {
+			var e = document.getElementById("copy");
+			e.select(); // 选择对象
+			document.execCommand("Copy"); // 执行浏览器复制命令
+			alert("网址复制成功！\n\n\n请粘贴到微信/QQ或者备忘录里。\n" +
+				"线路域名经常被屏蔽，请务必保存回家地址。\n\n如果您觉得本站还不错，请粘贴发送给好友。\n感谢～");
+		}
+	</script>
+	<!--文字闪烁js-->
+	<script language="javascript">
+		function changeColor() {
+			var color = "#fff000|#2fff00|#FF0066|#00f3ff";
+			color = color.split("|");
+			document.getElementById("blink").style.color = color[parseInt(Math.random() * color.length)];
+		}
+		setInterval("changeColor()", 100);
+	</script>
+	<style>
+		textarea {
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			z-index: -10;
+		}
+
+		.fuzhi {
+			background-color: #fff000;
+			/*border: 1px solid rgb(244, 244, 244);*/
+			height: 20px;
+			line-height: 20px;
+			text-align: center;
+			color: #000000;
+			padding: 2px 5px 2px 5px;
+			border-radius: 10px;
+			cursor: pointer;
+			text-decoration: none;
+		}
+
+		.fuzhi a:have {
+			background-color: #00000;
+			/*border: 1px solid rgb(244, 244, 244);*/
+			height: 20px;
+			line-height: 20px;
+			text-align: center;
+			color: #000000;
+			padding: 2px 5px 2px 5px;
+			border-radius: 10px;
+			cursor: pointer;
+			text-decoration: none;
+		}
+	</style>
+
+</div>
+<div class="appel">
+	<div id="ddab">
+		<div class="seach">
+			<form name="search">
+				<input type="text" placeholder="站长提示：搜索视频关键词请在这里搜索！！！" name="search">
+				<button type="submit">视频搜索</button>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="appel">
+	<div id="youmu" class="youmu-app">
+		<dl>
+			<dt><a href='/'><b>
+						<font color='#FF0000'>网站首页</font>
+					</b></a></dt>
+		</dl>
+		<dl>
+			<dt><b><font color='#57c7d4'>视频一区</font></b></dt>
+			{ytcms:Type=1,2,3,4,5,6,7,8}
+			<dd><a href="{ytcms:Url}" target="_blank">{ytcms:Name}</a></dd>
+			{/ytcms:Type}
+		</dl>
+		<dl>
+			<dt><b><font color='#57c7d4'>视频二区</font></b></dt>
+			{ytcms:Type=9,10,11,12,13,14,15,16}
+			<dd><a href="{ytcms:Url}" target="_blank">{ytcms:Name}</a></dd>
+			{/ytcms:Type}
+		</dl>
+		<dl>
+			<dt><b><font color='#57c7d4'>视频三区</font></b></dt>
+			{ytcms:Type=17,18,19,20,21,22,23,24}
+			<dd><a href="{ytcms:Url}" target="_blank">{ytcms:Name}</a></dd>
+			{/ytcms:Type}
+		</dl>
+			<dl>
+			<dt><b><font color='#57c7d4'>视频四区</font></b></dt>
+			{ytcms:Type=25,26,27,28,29,30,31,32}
+			<dd><a href="{ytcms:Url}" target="_blank">{ytcms:Name}</a></dd>
+			{/ytcms:Type}
+		</dl>
+	</div>
+</div>

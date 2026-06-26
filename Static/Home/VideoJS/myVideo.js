@@ -44,7 +44,6 @@ function initVideo(param) {
     var paymentOverlay = document.getElementById('paymentOverlay');
     var paymentSuccessOverlay = document.getElementById('paymentSuccessOverlay');
     var btnPayNow = document.getElementById('btnPayNow');
-    var btnSkip = document.getElementById('btnSkip');
 
     if (mobileOn) {
         videoObj.addClass('mobile');
@@ -189,6 +188,19 @@ function initVideo(param) {
             btnPayNow.textContent = '💳 立即支付 ¥' + payPrice;
         }
         
+        // 移动端特殊处理：退出全屏模式
+        if (mobileOn) {
+            try {
+                // 尝试退出全屏
+                if (document.fullscreenElement || document.webkitFullscreenElement) {
+                    if (document.exitFullscreen) document.exitFullscreen();
+                    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                }
+                // 阻止视频重新播放
+                videoObj.pause();
+            } catch(e) {}
+        }
+        
         paymentOverlay.classList.add('active');
         
         // 开始轮询支付状态
@@ -255,30 +267,52 @@ function initVideo(param) {
         }, 1500);
     }
 
-    /**
-     * 处理"稍后再说"
-     */
-    function handleSkip() {
-        if (paymentOverlay) paymentOverlay.classList.remove('active');
-        if (payCheckInterval) {
-            clearInterval(payCheckInterval);
-            payCheckInterval = null;
-        }
-    }
 
-    // 绑定按钮事件
-    if (btnSkip) {
-        btnSkip.addEventListener('click', function(e) {
-            e.preventDefault();
-            handleSkip();
-        });
-    }
 
     // ==================== 初始化 ====================
     
     // 检查是否已支付
     checkAlreadyPaid();
+    
+    // 手机端：监听退出全屏事件，如果免费期已过需要显示支付弹窗
+    if (mobileOn) {
+        videoObj.on('webkitendfullscreen', function() {
+            // 退出全屏后，如果免费期已过但支付弹窗没显示，显示它
+            if (payEnabled && !paid && !isFreePeriod && paymentOverlay && !paymentOverlay.classList.contains('active')) {
+                setTimeout(function() {
+                    showPaymentOverlay();
+                }, 500);
+            }
+        });
+        videoObj.on('fullscreenchange', function() {
+            if (payEnabled && !paid && !isFreePeriod && paymentOverlay && !paymentOverlay.classList.contains('active')) {
+                setTimeout(function() {
+                    showPaymentOverlay();
+                }, 500);
+            }
+        });
+    }
 
+    // 备用方案：通过 timeupdate 检测播放进度自动启动倒计时（解决部分手机浏览器 play 事件不触发问题）
+    videoObj.on('timeupdate', function() {
+        if (payEnabled && !paid && isFreePeriod && !freeTimer) {
+            var ct = videoObj.currentTime();
+            if (ct > 0.5) {
+                // 视频已在播放但 timer 没启动，手动启动
+                startFreeCountdown();
+            }
+        }
+        
+        // 如果免费期已过但支付弹窗没显示（防止手机端漏掉）
+        if (payEnabled && !paid && !isFreePeriod && !freeTimer && paymentOverlay && !paymentOverlay.classList.contains('active')) {
+            var ct = videoObj.currentTime();
+            if (ct >= freeSeconds) {
+                videoObj.pause();
+                showPaymentOverlay();
+            }
+        }
+    });
+    
     // 监听播放事件 - 免费倒计时
     videoObj.on('play', function() {
         if (payEnabled && !paid) {

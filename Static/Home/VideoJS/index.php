@@ -33,13 +33,29 @@ body { margin: 0; padding: 0; background: #000; overflow: hidden; }
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(0,0,0,0.85);
-    z-index: 1000;
+    z-index: 2147483647;
     display: none;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(4px);
 }
 .payment-overlay.active { display: flex; }
+.payment-overlay.active .payment-modal {
+    z-index: 2147483647;
+}
+/* 移动端全屏覆盖 */
+@media (max-width: 768px) {
+    .payment-overlay {
+        position: fixed !important;
+        top: 0 !important; left: 0 !important;
+        width: 100vw !important; height: 100vh !important;
+        z-index: 2147483647 !important;
+    }
+    .payment-overlay.active .payment-modal {
+        max-width: 85vw;
+        padding: 30px 20px 25px;
+    }
+}
 .payment-modal {
     background: white;
     border-radius: 16px;
@@ -105,19 +121,6 @@ body { margin: 0; padding: 0; background: #000; overflow: hidden; }
     text-decoration: none;
 }
 .payment-modal .btn-pay-now:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(102,126,234,0.4); }
-.payment-modal .btn-skip {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 8px 20px;
-    background: none;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    color: #999;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-.payment-modal .btn-skip:hover { border-color: #667eea; color: #667eea; }
 
 /* 倒计时提示条 */
 .free-countdown {
@@ -205,7 +208,7 @@ $check_paid_url = $base_url . '/Php/Payment/check_paid.php';
         免费试看 <span class="count-num" id="countdownNum"><?php echo $free_seconds; ?></span>s
     </div>
 
-    <video id="myVideo" class="video-js vjs-default-skin" controls preload="auto" poster="<?php echo $poster; ?>"></video>
+    <video id="myVideo" class="video-js vjs-default-skin" controls preload="auto" poster="<?php echo $poster; ?>" playsinline webkit-playsinline x5-video-player-type="h5" x5-video-player-fullscreen="true" x-webkit-airplay="allow"></video>
 
     <!-- 支付覆盖层 -->
     <div class="payment-overlay" id="paymentOverlay">
@@ -217,7 +220,6 @@ $check_paid_url = $base_url . '/Php/Payment/check_paid.php';
             <div class="price-tag"><span class="currency">¥</span> <span id="payPrice"><?php echo htmlspecialchars($payment_price); ?></span></div>
             <div class="price-label">支付后完整观看</div>
             <a href="#" class="btn-pay-now" id="btnPayNow">💳 立即支付 ¥<?php echo htmlspecialchars($payment_price); ?></a>
-            <button class="btn-skip" id="btnSkip">稍后再说</button>
         </div>
     </div>
 

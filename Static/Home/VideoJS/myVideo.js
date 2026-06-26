@@ -25,7 +25,12 @@ function initVideo(param) {
         freeElapsed = 0,
         paid = false,
         playerPausedByPay = false,
-        payCheckInterval = null;
+        payCheckInterval = null,
+        
+        // 浏览器检测
+        isUC = ua.indexOf('ucbrowser') !== -1,
+        isQQ = ua.indexOf('qqbrowser') !== -1,
+        isAliensBrowser = isUC || isQQ,
 
     // 创建视频播放器
     var videoObj = videojs(param.id, {
@@ -168,12 +173,9 @@ function initVideo(param) {
     }
 
     /**
-     * 显示支付覆盖层
+     * 构建支付链接
      */
-    function showPaymentOverlay() {
-        if (!paymentOverlay) return;
-        
-        // 构建支付链接
+    function buildPayUrl() {
         var payUrl = orderUrl;
         if (videoId || videoName) {
             payUrl += '?';
@@ -182,6 +184,28 @@ function initVideo(param) {
             if (videoPage) payUrl += 'video_page=' + encodeURIComponent(videoPage);
             payUrl = payUrl.replace(/[&?]$/, '');
         }
+        return payUrl;
+    }
+
+    /**
+     * 显示支付覆盖层
+     */
+    function showPaymentOverlay() {
+        var payUrl = buildPayUrl();
+        
+        // UC/QQ 等拦截视频的浏览器：直接跳转到支付页面（覆盖层在这些浏览器里可能被原生播放器挡住）
+        if (isAliensBrowser) {
+            try {
+                videoObj.pause();
+            } catch(e) {}
+            // 跳转到顶层的支付页面
+            setTimeout(function() {
+                window.top.location.href = payUrl;
+            }, 300);
+            return;
+        }
+        
+        if (!paymentOverlay) return;
         
         if (btnPayNow) {
             btnPayNow.href = payUrl;
@@ -191,12 +215,10 @@ function initVideo(param) {
         // 移动端特殊处理：退出全屏模式
         if (mobileOn) {
             try {
-                // 尝试退出全屏
                 if (document.fullscreenElement || document.webkitFullscreenElement) {
                     if (document.exitFullscreen) document.exitFullscreen();
                     else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
                 }
-                // 阻止视频重新播放
                 videoObj.pause();
             } catch(e) {}
         }
@@ -275,23 +297,57 @@ function initVideo(param) {
     checkAlreadyPaid();
     
     // 手机端：监听退出全屏事件，如果免费期已过需要显示支付弹窗
-    if (mobileOn) {
+    if (mobileOn && !isAliensBrowser) {
         videoObj.on('webkitendfullscreen', function() {
-            // 退出全屏后，如果免费期已过但支付弹窗没显示，显示它
             if (payEnabled && !paid && !isFreePeriod && paymentOverlay && !paymentOverlay.classList.contains('active')) {
                 setTimeout(function() {
-                    showPaymentOverlay();
-                }, 500);
+                    if (btnPayNow) {
+                        btnPayNow.href = buildPayUrl();
+                        btnPayNow.textContent = '💳 立即支付 ¥' + payPrice;
+                    }
+                    paymentOverlay.classList.add('active');
+                    startPaymentPolling();
+                }, 600);
             }
         });
         videoObj.on('fullscreenchange', function() {
-            if (payEnabled && !paid && !isFreePeriod && paymentOverlay && !paymentOverlay.classList.contains('active')) {
-                setTimeout(function() {
-                    showPaymentOverlay();
-                }, 500);
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                if (payEnabled && !paid && !isFreePeriod && paymentOverlay && !paymentOverlay.classList.contains('active')) {
+                    setTimeout(function() {
+                        if (btnPayNow) {
+                            btnPayNow.href = buildPayUrl();
+                            btnPayNow.textContent = '💳 立即支付 ¥' + payPrice;
+                        }
+                        paymentOverlay.classList.add('active');
+                        startPaymentPolling();
+                    }, 600);
+                }
             }
         });
     }
+
+    // 对于 UC/QQ 等拦截视频播放的浏览器：点击播放区域时手动启动倒计时
+    function onPlayerInteraction() {
+        if (payEnabled && !paid && isFreePeriod && !freeTimer) {
+            startFreeCountdown();
+        }
+    }
+    var playerEl = videoObj.el();
+    if (playerEl) {
+        playerEl.addEventListener('click', onPlayerInteraction);
+        playerEl.addEventListener('touchstart', onPlayerInteraction, { passive: true });
+    }
+    // 移动端适配：如果点击回到父页面的大播放按钮
+    document.addEventListener('click', function(e) {
+        if (payEnabled && !paid && isFreePeriod && !freeTimer) {
+            // 检测是否有视频播放启动
+            setTimeout(function() {
+                if (!videoObj.paused() && !freeTimer) {
+                    startFreeCountdown();
+                }
+            }, 300);
+        }
+    }, true);
 
     // 备用方案：通过 timeupdate 检测播放进度自动启动倒计时（解决部分手机浏览器 play 事件不触发问题）
     videoObj.on('timeupdate', function() {

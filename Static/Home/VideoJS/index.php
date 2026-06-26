@@ -28,29 +28,27 @@ body { margin: 0; padding: 0; background: #000; overflow: hidden; }
 .vjs-mute-control:hover { transform: scale(1.15); }
 .vjs-volume-panel { width: 40px !important; min-width: 40px !important; }
 
-/* ----- 支付覆盖层样式 ----- */
+/* ----- 支付覆盖层样式（body 级固定定位，最高层级）----- */
 .payment-overlay {
-    position: absolute;
+    position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
     background: rgba(0,0,0,0.85);
     z-index: 2147483647;
     display: none;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(4px);
+    pointer-events: auto;
 }
 .payment-overlay.active { display: flex; }
 .payment-overlay.active .payment-modal {
     z-index: 2147483647;
+    pointer-events: auto;
 }
-/* 移动端全屏覆盖 */
+/* 移动端适配 */
 @media (max-width: 768px) {
-    .payment-overlay {
-        position: fixed !important;
-        top: 0 !important; left: 0 !important;
-        width: 100vw !important; height: 100vh !important;
-        z-index: 2147483647 !important;
-    }
     .payment-overlay.active .payment-modal {
         max-width: 85vw;
         padding: 30px 20px 25px;
@@ -139,12 +137,14 @@ body { margin: 0; padding: 0; background: #000; overflow: hidden; }
 .free-countdown.active { display: block; }
 .free-countdown .count-num { color: #ff6b6b; font-weight: 700; }
 
-/* 支付成功提示 */
+/* 支付成功提示（也是 body 级） */
 .payment-success-overlay {
-    position: absolute;
+    position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 1001;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+    z-index: 2147483646;
     display: none;
     justify-content: center;
     align-items: center;
@@ -210,7 +210,12 @@ $check_paid_url = $base_url . '/Php/Payment/check_paid.php';
 
     <video id="myVideo" class="video-js vjs-default-skin" controls preload="auto" poster="<?php echo $poster; ?>" playsinline webkit-playsinline x5-video-player-type="h5" x5-video-player-fullscreen="true" x-webkit-airplay="allow"></video>
 
-    <!-- 支付覆盖层 -->
+    <link rel="stylesheet" type="text/css" href="video.min.css?v=3">
+    <script type="text/javascript" src="video.min.js?v=1" charset="utf-8"></script>
+    <script type="text/javascript" src="video-conrtib-ads.js?v=1" charset="utf-8"></script>
+    <script type="text/javascript" src="myVideo.js?v=7" charset="utf-8"></script>
+
+    <!-- 支付覆盖层（body 直接子元素，避免被播放器层叠上下文遮挡） -->
     <div class="payment-overlay" id="paymentOverlay">
         <div class="payment-modal">
             <div class="lock-icon">🔒</div>
@@ -231,11 +236,6 @@ $check_paid_url = $base_url . '/Php/Payment/check_paid.php';
             <p>视频即将继续播放...</p>
         </div>
     </div>
-
-    <link rel="stylesheet" type="text/css" href="video.min.css?v=3">
-    <script type="text/javascript" src="video.min.js?v=1" charset="utf-8"></script>
-    <script type="text/javascript" src="video-conrtib-ads.js?v=1" charset="utf-8"></script>
-    <script type="text/javascript" src="myVideo.js?v=6" charset="utf-8"></script>
 
     <script type="text/javascript">
         var vPath = '<?php echo $vPath; ?>';

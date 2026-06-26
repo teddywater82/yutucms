@@ -279,12 +279,15 @@ function initVideo(param) {
     // 检查是否已支付
     checkAlreadyPaid();
 
-    // 监听播放事件
+    // 监听播放事件 - 免费倒计时
     videoObj.on('play', function() {
         if (payEnabled && !paid) {
-            // 首次播放时启动免费倒计时
             if (isFreePeriod && !freeTimer) {
+                // 首次启动倒计时
                 startFreeCountdown();
+            } else if (isFreePeriod && freeTimer) {
+                // 如果暂停时 timer 被清除了但免费期未过，重启
+                // 不做特殊处理，继续使用已有timer
             }
         }
         
@@ -296,12 +299,18 @@ function initVideo(param) {
             }
         }
     });
-
+    
+    // 暂停时，暂停倒计时
     videoObj.on('pause', function() {
+        if (payEnabled && !paid && isFreePeriod && freeTimer) {
+            clearInterval(freeTimer);
+            freeTimer = null;
+        }
+        
         // 如果是因为支付弹窗暂停的，不显示暂停广告
         if (playerPausedByPay) return;
         
-        // 暂停广告逻辑
+        // 暂停广告逻辑（原有）
         if (param.ad && param.ad.pause && param.ad.pause.url && !(ua.indexOf('sogou') > -1 && ua.indexOf('mobile') > -1)) {
             if (mobileOn && videojs.dom.$(videoH5Id)) {
                 videojs.dom.$(videoH5Id).style.left = '-100%';
